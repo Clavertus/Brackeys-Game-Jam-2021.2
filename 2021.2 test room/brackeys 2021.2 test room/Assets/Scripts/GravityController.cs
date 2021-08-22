@@ -6,6 +6,7 @@ public class GravityController : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    public Rigidbody rb;
     public GameObject levelManager;
 
     public int cg; //stands for currentGrav variable from RandomizeGravity.cs
@@ -20,14 +21,12 @@ public class GravityController : MonoBehaviour
 
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();        
     }
 
 
     void Update()
     {
 
-        cg = levelManager.GetComponent<RandomizeGravity>().currentGrav;
         tagType = gameObject.tag;
 
         switch (cg)
