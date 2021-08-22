@@ -5,7 +5,6 @@ using UnityEngine;
 public class GravityController : MonoBehaviour
 {
 
-    public Rigidbody2D rb;
     public Rigidbody rb;
     public GameObject levelManager;
 
@@ -21,12 +20,15 @@ public class GravityController : MonoBehaviour
 
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody>();
+        levelManager = GameObject.FindGameObjectWithTag("levelManager");
     }
 
 
     void Update()
     {
 
+        cg = levelManager.GetComponent<LevelManager>().currentGrav;
         tagType = gameObject.tag;
 
         switch (cg)

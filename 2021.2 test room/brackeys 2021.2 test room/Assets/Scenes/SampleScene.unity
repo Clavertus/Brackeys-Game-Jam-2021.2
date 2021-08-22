@@ -627,7 +627,6 @@ GameObject:
   - component: {fileID: 708780439}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
   m_TagString: levelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -646,10 +645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGrav: 0
-  gravForce: 0
   gravForce: 100
   currTimer: 0
-  maxTimer: 0
   maxTimer: 3
 --- !u!4 &708780440
 Transform:
