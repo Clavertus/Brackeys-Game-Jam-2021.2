@@ -20,7 +20,10 @@ public class SuckToSelf : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<GravitySwitcher>().EnteringOrb(gameObject);
+        if (other.GetComponent<GravitySwitcher>())
+        {
+            other.gameObject.GetComponent<GravitySwitcher>().EnteringOrb(gameObject); 
+        }
     }
 
     
