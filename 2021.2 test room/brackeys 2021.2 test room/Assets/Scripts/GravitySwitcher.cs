@@ -5,17 +5,11 @@ using UnityEngine;
 public class GravitySwitcher : MonoBehaviour
 {
     //state
-    bool gravityRight = false;
-    bool gravityLeft = false;
-    bool gravityUp = false;
-    bool gravityDown = false;
-    bool zeroGravity = false;
     bool isMovingToOrb = false;
     bool enteredOrbArea = false; 
 
     //config
     Rigidbody myRigidbody;
-    [SerializeField] Vector3 rightGravity;
 
     [Header("Portal Config")]
     [SerializeField] float portalSuckSpeed = .2f;
@@ -25,7 +19,6 @@ public class GravitySwitcher : MonoBehaviour
     Vector3 orbPos;
     void Start()
     {
-        gravityRight = true; 
         myRigidbody = GetComponent<Rigidbody>();
         myRigidbody.useGravity = false;
     }
@@ -35,7 +28,6 @@ public class GravitySwitcher : MonoBehaviour
     {
         if (isMovingToOrb) { MoveTowards();  return; }
         if (enteredOrbArea) { Rotate(); }
-        if (gravityRight){ SetGravityRight(); }
     }
     public void EnteringOrb(GameObject orb)
     {
@@ -65,11 +57,6 @@ public class GravitySwitcher : MonoBehaviour
 
 
 
-    private void SetGravityRight()
-    {
-        myRigidbody.AddForce(rightGravity, ForceMode.Acceleration);
-  
-    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("center chaos")) { Destroy(gameObject);  }  
