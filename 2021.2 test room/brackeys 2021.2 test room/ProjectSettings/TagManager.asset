@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - center chaos
+  - c
+  - cc
+  - levelManager
   layers:
   - Default
   - TransparentFX
