@@ -12,14 +12,31 @@ public class LevelManager : MonoBehaviour
     // 2 for up
     // 3 for right
 
-    public float currTimer;
+    float currTimer;
     public float maxTimer;
+    Vector3 currentEuler;
 
-    public GameObject player;
+     float currentAngle;
+     float desiredAngle;
+
+    float rotTimer;
+    public float rotTime;
+    float perc;
+
+    bool rotating;
+
+    public Transform player;
+
+    void Awake()
+    {
+        rotating = false;
+    }
 
 
     void Update()
     {
+
+
         currTimer += Time.deltaTime;
         if (currTimer >= maxTimer)
         {
@@ -27,16 +44,72 @@ public class LevelManager : MonoBehaviour
             if (currentGrav == 3)
             {
                 currentGrav = 0;
-                player.transform.Rotate(0, 0, -90);
+                rotating = true;
             }
             else
             {
                 currentGrav++;
-                player.transform.Rotate(0, 0, -90);
+                rotating = true;
+            }
+        }
+
+        if (rotating)
+        {
+            
+             
+            
+            if(rotTimer < rotTime)
+            {
+                rotTimer += Time.deltaTime;
+                perc = rotTimer / rotTime;
+                perc = 1 - Mathf.Pow(2, -10 * perc);
+            } else
+            {
+                rotTimer = 0;
+                rotating = false;
             }
 
+
+            switch (currentGrav)
+            {
+                case 0:
+                     currentAngle = -270;
+                     desiredAngle = -360;
+                    break;
+
+                case 1:
+                    currentAngle = 0;
+                    desiredAngle = -90;
+                    break;
+
+                case 2:
+                    currentAngle = -90;
+                    desiredAngle = -180;
+                    break;
+
+                case 3:
+                    currentAngle = -180;
+                    desiredAngle = -270;
+                    break;
+
+            }
+
+
+
+
+            float newZ = Mathf.Lerp(currentAngle, desiredAngle, perc);
+          
+    
+            currentEuler = new Vector3(0, 0, newZ);                 //that actually does the spinning
+            player.eulerAngles = currentEuler;
         }
+
+
     }
+
+
+        
+
 
 
 
