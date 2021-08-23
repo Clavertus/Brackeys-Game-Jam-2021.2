@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a592b1ff37799942bb06eee10892121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoveSpeed: 0.15
+  playerMoveSpeed: 4
   jumpForce: 400
   feet: {fileID: 6865419377114124300}
 --- !u!1 &6865419378407660178

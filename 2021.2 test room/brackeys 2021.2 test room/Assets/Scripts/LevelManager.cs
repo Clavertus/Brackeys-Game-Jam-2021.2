@@ -7,8 +7,6 @@ public class LevelManager : MonoBehaviour
 
     public int currentGrav;
 
-    public float gravForce;
-
     // 0 for normal
     // 1 for left
     // 2 for up
@@ -16,6 +14,8 @@ public class LevelManager : MonoBehaviour
 
     public float currTimer;
     public float maxTimer;
+
+    public GameObject player;
 
 
     void Update()
@@ -27,10 +27,12 @@ public class LevelManager : MonoBehaviour
             if (currentGrav == 3)
             {
                 currentGrav = 0;
+                player.transform.Rotate(0, 0, -90);
             }
             else
             {
                 currentGrav++;
+                player.transform.Rotate(0, 0, -90);
             }
 
         }
