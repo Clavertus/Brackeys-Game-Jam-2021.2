@@ -18,6 +18,7 @@ public class RandomizeGravity : MonoBehaviour
     public float maxTimer;
 
 
+  
     void Update()
     {
         currTimer += Time.deltaTime;

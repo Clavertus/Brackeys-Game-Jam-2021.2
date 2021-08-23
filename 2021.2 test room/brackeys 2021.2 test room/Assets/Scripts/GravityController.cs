@@ -21,6 +21,7 @@ public class GravityController : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        rb.useGravity = false; 
         levelManager = GameObject.FindGameObjectWithTag("levelManager");
     }
 
