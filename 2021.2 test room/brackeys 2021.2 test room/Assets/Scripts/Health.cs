@@ -16,7 +16,11 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        TakeDamage(); 
+        //will make this check more specific to the boxes when we add more scripts to them.
+        if (other.gameObject.GetComponent<GravityController>())
+        {
+            TakeDamage();
+        }
     }
     void TakeDamage()
     {

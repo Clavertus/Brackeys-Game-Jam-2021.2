@@ -1264,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7817186161442439788, guid: 83c742d649bf8e44f9e3be66c29930f4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8850024097932163238, guid: 83c742d649bf8e44f9e3be66c29930f4, type: 3}
       propertyPath: jumpForce
       value: 5
