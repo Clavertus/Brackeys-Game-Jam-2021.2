@@ -27,7 +27,7 @@ public class Gun : MonoBehaviour
 
     private void Aiming()
     {
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 1000f);
 
          aimDirection = (mouseWorldPosition - transform.position).normalized; 
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
