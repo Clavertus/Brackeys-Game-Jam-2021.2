@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,26 +8,42 @@ public class Gun : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject gunTip;
     [SerializeField] float bulletSpeed;
-    Vector3 mouseWorldPosition; 
-    float angle; 
+    Vector3 mouseWorldPosition;
+    Vector3 aimDirection; 
+    float angle;
+
+
+    private void Start()
+    {
+         
+    }
     void Update()
+    {
+        Aiming();
+        Shooting();
+    }
+
+    
+
+    private void Aiming()
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
 
-        angle = AngleBetweenPoints(transform.position, mouseWorldPosition);
-
-        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        
-
+         aimDirection = (mouseWorldPosition - transform.position).normalized; 
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, angle);
     }
 
-    
-    float AngleBetweenPoints(Vector3 a, Vector3 b)
+    private void Shooting()
     {
-        //some trigonometry bs. 
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;  
+        if (Input.GetMouseButtonDown(0))
+        {
+            var bulletInstance = Instantiate(bullet, gunTip.transform.position, Quaternion.identity);
+            bulletInstance.GetComponent<Bullet>().BulletShot(aimDirection);    
+        } 
+
     }
 
-    
-    
+
+
 }

@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody myRigidBody;
+    [SerializeField] float bulletSpeed = 5f;
+    Vector3 shootAngle;
+    bool bulletWasShot = false; 
     void Start()
     {
-        
+        myRigidBody = GetComponent<Rigidbody>(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
-  
+        if(bulletWasShot) {  BulletVelocity();  } 
+    }
+    public void BulletShot(Vector3 aimDirection)
+    {
+        
+        shootAngle = aimDirection;
+        bulletWasShot = true; 
+    }
+
+    void BulletVelocity()
+    {       
+        myRigidBody.velocity = shootAngle * bulletSpeed;  
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<GravityController>() && !other.gameObject.CompareTag("c")) 
+        {
+            other.gameObject.tag = ("c"); 
+        }
+        else if (other.gameObject.GetComponent<GravityController>() && other.gameObject.CompareTag("c"))
+        {
+            other.gameObject.tag = ("cc"); 
+        }
     }
 }
