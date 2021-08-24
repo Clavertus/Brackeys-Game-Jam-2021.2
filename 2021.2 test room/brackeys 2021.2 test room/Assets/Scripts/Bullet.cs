@@ -10,7 +10,8 @@ public class Bullet : MonoBehaviour
     bool bulletWasShot = false; 
     void Start()
     {
-        myRigidBody = GetComponent<Rigidbody>(); 
+        myRigidBody = GetComponent<Rigidbody>();
+        Destroy(gameObject, 10f);
     }
 
     void Update()
@@ -29,6 +30,7 @@ public class Bullet : MonoBehaviour
         myRigidBody.velocity = shootAngle * bulletSpeed;  
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<GravityController>() && !other.gameObject.CompareTag("c")) 
@@ -39,5 +41,20 @@ public class Bullet : MonoBehaviour
         {
             other.gameObject.tag = ("cc"); 
         }
+    } 
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<GravityController>() && gameObject.name == "cBullet(Clone)")
+        {
+            other.gameObject.tag = ("c");
+        }
+        else if (other.gameObject.GetComponent<GravityController>() && gameObject.name == "ccBullet(Clone)")
+        {
+            other.gameObject.tag = ("cc");
+        }
     }
+    */
+
+
 }

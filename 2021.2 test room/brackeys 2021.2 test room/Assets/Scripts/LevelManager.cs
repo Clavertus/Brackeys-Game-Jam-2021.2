@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class LevelManager : MonoBehaviour
     // 1 for left
     // 2 for up
     // 3 for right
+
+
 
     float currTimer;
     public float maxTimer;
@@ -32,6 +35,10 @@ public class LevelManager : MonoBehaviour
         rotating = false;
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
     void Update()
     {

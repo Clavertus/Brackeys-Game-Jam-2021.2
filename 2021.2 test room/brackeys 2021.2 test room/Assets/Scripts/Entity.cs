@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public SpriteRenderer sprite;
+    Material mat;
 
+    void Awake()
+    {
+        mat = gameObject.GetComponent<MeshRenderer>().material;
+    }
     void Update()
     {
         switch (tag)
         {
             case "Untagged":
-                sprite.color = new Color(0.63f, 0.63f, 0.63f);
+                mat.color = new Color(0.63f, 0.63f, 0.63f);
                 break;
 
             case "c":
-                sprite.color = new Color(1, 0, 0);
+                mat.color = new Color(0, 0, 1);
                 break;
 
             case "cc":
-                sprite.color = new Color(0, 0, 1);
+                mat.color = new Color(1, .5f, 0);
                 break;
 
 
