@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
             case 2:
-                newPos = (transform.position.x - delta);
+                newPos = (transform.position.x + delta);
                 transform.position = new Vector2(newPos, transform.position.y);
 
                 break;
