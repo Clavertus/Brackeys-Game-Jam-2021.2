@@ -1341,6 +1341,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 830944, guid: 3a966b3479f47b14897d758115ff9833, type: 3}
+      propertyPath: m_Name
+      value: point_hint
+      objectReference: {fileID: 0}
+    - target: {fileID: 633662395, guid: 3a966b3479f47b14897d758115ff9833, type: 3}
+      propertyPath: m_Name
+      value: point
+      objectReference: {fileID: 0}
+    - target: {fileID: 793876684, guid: 3a966b3479f47b14897d758115ff9833, type: 3}
+      propertyPath: m_Name
+      value: point_target
+      objectReference: {fileID: 0}
     - target: {fileID: 1713854348395754757, guid: 3a966b3479f47b14897d758115ff9833, type: 3}
       propertyPath: m_Name
       value: Player_update
@@ -1355,7 +1367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7937139386821267743, guid: 3a966b3479f47b14897d758115ff9833, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.5639734
       objectReference: {fileID: 0}
     - target: {fileID: 7937139386821267743, guid: 3a966b3479f47b14897d758115ff9833, type: 3}
       propertyPath: m_LocalPosition.z
