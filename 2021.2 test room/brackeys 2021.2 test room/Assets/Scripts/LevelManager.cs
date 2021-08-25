@@ -27,12 +27,14 @@ public class LevelManager : MonoBehaviour
     float perc;
 
     bool rotating;
+    public bool u_rotating;
 
     public Transform player;
 
     void Awake()
     {
         rotating = false;
+        u_rotating = false;
     }
 
    
@@ -49,11 +51,13 @@ public class LevelManager : MonoBehaviour
             {
                 currentGrav = 0;
                 rotating = true;
+                u_rotating = true;
             }
             else
             {
                 currentGrav++;
                 rotating = true;
+                u_rotating = true;
             }
         }
 
@@ -71,6 +75,7 @@ public class LevelManager : MonoBehaviour
             {
                 rotTimer = 0;
                 rotating = false;
+                u_rotating = false;
             }
 
 

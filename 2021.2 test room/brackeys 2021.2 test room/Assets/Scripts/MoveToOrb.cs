@@ -55,7 +55,8 @@ public class GravitySwitcher : MonoBehaviour
 
     //called in update when enteredOrbArea is true. 
     void Rotate()
-    { 
+    {
+        transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().alive = false;
         rotateSpeed -= rotateSpeedIncrement;
         transform.Rotate(rotateSpeed, rotateSpeed, rotateSpeed * -rotateSpeed, Space.World);   
     }

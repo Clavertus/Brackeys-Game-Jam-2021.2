@@ -8,6 +8,7 @@ TagManager:
   - c
   - cc
   - levelManager
+  - Inverted
   layers:
   - Default
   - TransparentFX

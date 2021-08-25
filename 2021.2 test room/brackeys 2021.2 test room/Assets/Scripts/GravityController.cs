@@ -17,25 +17,27 @@ public class GravityController : MonoBehaviour
         'c' ic clockwise
         'cc' is counter-clockwise  */
 
-        //WORKING
+    //WORKING
 
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        rb.useGravity = false; 
+        rb.useGravity = false;
         levelManager = GameObject.FindGameObjectWithTag("levelManager");
     }
 
 
     void Update()
     {
-       
+
 
         currentGravitationState = cg;
         cg = levelManager.GetComponent<LevelManager>().currentGrav;
         tagType = gameObject.tag;
 
+        #region oldCode
+        /*
         switch (cg)
         {
 
@@ -122,10 +124,82 @@ public class GravityController : MonoBehaviour
                 break;
         } //assigns certain gravity force based on current gravitational cycle and whether the object is influenced by gravity gun
 
+    */
+
+        #endregion
+
+        switch (cg)
+        {
+
+            case 0:
+                if (tagType == "Untagged")
+                {
+                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * gravityScale);
+
+                }
+                else if (tagType == "Inverted")
+                {
+                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * -gravityScale);
+                }
+
+                break;
+
+
+            case 1:
+                if (tagType == "Untagged")
+                {
+                    rb.AddForce(Vector3.left * 9.81f * Time.deltaTime * gravityScale);
+
+                }
+                else if (tagType == "Inverted")
+                {
+                    rb.AddForce(Vector3.left * 9.81f * Time.deltaTime * -gravityScale);
+                }
+                break;
+
+
+
+            case 2:
+                if (tagType == "Untagged")
+                {
+                    rb.AddForce(Vector3.up * 9.81f * Time.deltaTime * gravityScale);
+
+                }
+                else if (tagType == "Inverted")
+                {
+                    rb.AddForce(Vector3.up * 9.81f * Time.deltaTime * -gravityScale);
+                }
+                break;
+
+
+
+            case 3:
+                if (tagType == "Untagged")
+                {
+                    rb.AddForce(Vector3.right * 9.81f * Time.deltaTime * gravityScale);
+
+                }
+                else if (tagType == "Inverted")
+                {
+                    rb.AddForce(Vector3.right * 9.81f * Time.deltaTime * -gravityScale);
+                }
+                break;
+
+            default:
+                if (tagType == "Untagged")
+                {
+                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * gravityScale);
+
+                }
+                else if (tagType == "Inverted")
+                {
+                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * -gravityScale);
+                }
+                break;
+
+        }
+
 
 
     }
-
-
-
 }
