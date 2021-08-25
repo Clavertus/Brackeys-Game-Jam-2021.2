@@ -35,10 +35,7 @@ public class LevelManager : MonoBehaviour
         rotating = false;
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+   
 
     void Update()
     {
