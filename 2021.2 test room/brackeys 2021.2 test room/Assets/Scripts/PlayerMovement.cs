@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     //config
     [SerializeField] float playerMoveSpeed = 1f;
     [SerializeField] float jumpForce = .2f;
-    [SerializeField] GameObject feet; 
+    [SerializeField] GameObject feet;
+     
+    
     Rigidbody myRigidBody;
 
     public int cg; //currentGrav from LevelManager.cs
@@ -15,7 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public float newPos;
 
     //state
-    bool isGrounded; 
+    bool isGrounded;
+    bool isDead = false; 
+ 
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("levelManager");
@@ -32,12 +36,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+         
         cg = levelManager.GetComponent<LevelManager>().currentGrav;
         Jump();
+
+        
     }
 
+    public void DeadState()
+    {
+        isDead = true; 
+    }
     private void Movement()
     {
+        if (isDead) { return;  }
         var delta = Input.GetAxisRaw("Horizontal") * playerMoveSpeed;
         
         switch (cg)
@@ -71,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        
+        if (isDead) { return;  }
+
         isGrounded = feet.GetComponent<IsGrounded>().returnGroundedState();
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)     
         {
@@ -94,7 +107,10 @@ public class PlayerMovement : MonoBehaviour
                     break;
 
             }
-          
+ 
         }
+        
     }
+
+
 }

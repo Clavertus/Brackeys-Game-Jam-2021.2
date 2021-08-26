@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Rigidbody myRigidBody;
+
     [SerializeField] float bulletSpeed = 5f;
     Vector3 shootAngle;
     bool bulletWasShot = false; 
@@ -33,13 +34,19 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<GravityController>() && !other.gameObject.CompareTag("c")) 
+        if (other.gameObject.GetComponent<GravityController>() && other.gameObject.tag == "Untagged") 
         {
-            other.gameObject.tag = ("c"); 
+            other.gameObject.tag = ("Inverted");
+            other.gameObject.transform.GetChild(0).GetChild(1).tag = ("Inverted");
+            other.gameObject.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().hit = true;
+
+
         }
-        else if (other.gameObject.GetComponent<GravityController>() && other.gameObject.CompareTag("c"))
+        else if (other.gameObject.GetComponent<GravityController>() && other.gameObject.tag == "Inverted")
         {
-            other.gameObject.tag = ("cc"); 
+            other.gameObject.tag = ("Untagged");
+            other.gameObject.transform.GetChild(0).GetChild(1).tag = ("Untagged");
+            other.gameObject.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().hit = true;
         }
     } 
     /*

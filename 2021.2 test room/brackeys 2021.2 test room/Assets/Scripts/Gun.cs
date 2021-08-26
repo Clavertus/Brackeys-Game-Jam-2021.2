@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     Vector3 mouseWorldPosition;
     Vector3 aimDirection; 
     float angle;
+    bool isDead = false; 
 
 
     private void Start()
@@ -19,11 +20,15 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
+        if(isDead) { return; }
         Aiming();
         Shooting();
     }
 
-    
+    public void GunDeadState()
+    {
+        isDead = true; 
+    }
 
     private void Aiming()
     {

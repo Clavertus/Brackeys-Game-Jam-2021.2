@@ -8,6 +8,7 @@ TagManager:
   - c
   - cc
   - levelManager
+  - Inverted
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - UI
   - Chaos Center
   - Chaos Outer
-  - 
-  - 
-  - 
+  - Feet
+  - Hazards
+  - Player
   - 
   - 
   - 
