@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     //config
     [SerializeField] float playerMoveSpeed = 1f;
     [SerializeField] float jumpForce = .2f;
-    [SerializeField] GameObject feet; 
+    [SerializeField] GameObject feet;
+     
+    
     Rigidbody myRigidBody;
 
     public int cg; //currentGrav from LevelManager.cs
@@ -15,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public float newPos;
 
     //state
-    bool isGrounded; 
+    bool isGrounded;
+ 
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("levelManager");
@@ -32,8 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+         
         cg = levelManager.GetComponent<LevelManager>().currentGrav;
         Jump();
+
+        
     }
 
     private void Movement()
@@ -94,7 +100,10 @@ public class PlayerMovement : MonoBehaviour
                     break;
 
             }
-          
+ 
         }
+        
     }
+
+
 }

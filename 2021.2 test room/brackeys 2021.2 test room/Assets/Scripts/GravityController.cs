@@ -12,6 +12,8 @@ public class GravityController : MonoBehaviour
     int cg;
     public float gravityScale;
 
+   
+
     public string tagType;
     /*  when an object gets hit by a bullet, it gets a tag. 
         'c' ic clockwise
@@ -202,4 +204,6 @@ public class GravityController : MonoBehaviour
 
 
     }
+
+    
 }
