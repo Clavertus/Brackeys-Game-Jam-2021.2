@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class IsGrounded : MonoBehaviour
 {
-    bool isGrounded;
+    public bool isGrounded;
 
-    private void OnTriggerEnter(Collider other)
+    public int jumpsRemaining;
+    public int maxJumpsRemaining;
+
+    public void Start()
     {
-        isGrounded = true;  
+        maxJumpsRemaining = 1;
+        jumpsRemaining = 1;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        isGrounded = true;
+        jumpsRemaining = maxJumpsRemaining;
     }
     private void OnTriggerExit(Collider other)
     {

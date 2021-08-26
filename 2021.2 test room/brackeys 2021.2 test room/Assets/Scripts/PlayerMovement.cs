@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //config
-    [SerializeField] float playerMoveSpeed = 1f;
-    [SerializeField] float jumpForce = .2f;
+    [SerializeField] public float playerMoveSpeed = 0.15f;
+    [SerializeField] float jumpForce;
     [SerializeField] GameObject feet;
+
      
     
     Rigidbody myRigidBody;
@@ -23,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("levelManager");
-        myRigidBody = GetComponent<Rigidbody>(); 
+        myRigidBody = GetComponent<Rigidbody>();
+        Time.fixedDeltaTime = 0.005f;
     }
 
     // Update is called once per frame
@@ -36,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-         
         cg = levelManager.GetComponent<LevelManager>().currentGrav;
         Jump();
 
@@ -86,28 +87,36 @@ public class PlayerMovement : MonoBehaviour
         if (isDead) { return;  }
 
         isGrounded = feet.GetComponent<IsGrounded>().returnGroundedState();
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)     
+        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || feet.GetComponent<IsGrounded>().jumpsRemaining > 0))     
         {
             switch (cg)
             {
                 case 0:
+                    myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 0, myRigidBody.velocity.z);
                     myRigidBody.AddForce(myRigidBody.velocity.x, jumpForce, myRigidBody.velocity.z);
                     break;
 
                 case 1:
+                    myRigidBody.velocity = new Vector3(0, myRigidBody.velocity.y, myRigidBody.velocity.z);
                     myRigidBody.AddForce(jumpForce, myRigidBody.velocity.y, myRigidBody.velocity.z);
                     break;
 
                 case 2:
+                    myRigidBody.velocity = new Vector3(myRigidBody.velocity.x, 0, myRigidBody.velocity.z);
                     myRigidBody.AddForce(myRigidBody.velocity.x, -jumpForce, myRigidBody.velocity.z);
                     break;
 
                 case 3:
+                    myRigidBody.velocity = new Vector3(0, myRigidBody.velocity.y, myRigidBody.velocity.z);
                     myRigidBody.AddForce(-jumpForce, myRigidBody.velocity.y, myRigidBody.velocity.z);
                     break;
 
             }
- 
+
+            feet.GetComponent<IsGrounded>().jumpsRemaining--;
+
+
+
         }
         
     }

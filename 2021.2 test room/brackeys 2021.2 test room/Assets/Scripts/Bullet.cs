@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<GravityController>() && other.gameObject.tag == "Untagged") 
+        if (other.gameObject.GetComponent<GravityController>() && other.gameObject.tag == "Untagged" && other.gameObject.name != "Player") 
         {
             other.gameObject.tag = ("Inverted");
             other.gameObject.transform.GetChild(0).GetChild(1).tag = ("Inverted");
