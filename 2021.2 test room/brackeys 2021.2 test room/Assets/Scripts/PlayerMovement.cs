@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     //state
     bool isGrounded;
+    bool isDead = false; 
  
     void Start()
     {
@@ -42,8 +43,13 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    public void DeadState()
+    {
+        isDead = true; 
+    }
     private void Movement()
     {
+        if (isDead) { return;  }
         var delta = Input.GetAxisRaw("Horizontal") * playerMoveSpeed;
         
         switch (cg)
@@ -77,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump()
     {
-        
+        if (isDead) { return;  }
+
         isGrounded = feet.GetComponent<IsGrounded>().returnGroundedState();
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)     
         {
