@@ -20,10 +20,13 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //will make this check more specific to the boxes when we add more scripts to them. 
-        if (other.gameObject.GetComponent<GravityController>())
+        if (other.gameObject.GetComponent<DamageBox>()) 
         {
             TakeDamage();
+        }
+        else if(other.gameObject.GetComponent<HealingOrb>())
+        {
+            Heal(); 
         }
     }
     void TakeDamage()
@@ -39,6 +42,10 @@ public class Health : MonoBehaviour
     
     void Heal()
     {
-
+        var scaleIncrement = myScale += myScale / startingHealth;
+        outerChaosOrb.transform.localScale =
+            new Vector3(scaleIncrement.x, scaleIncrement.y, scaleIncrement.z);
+        health++;
+        boxSpawner.GetComponent<BoxSpawner>().HealthSum(1); 
     }
 }

@@ -4,24 +4,41 @@ using UnityEngine;
 
 public class BoxSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject DamageBox;
-    [SerializeField] GameObject HealingOrb;
-    [SerializeField] List<Transform> spawnLocations; 
-    int currentBoxCount; 
-    int minimumBoxes;
-    int sumOfSingularitiesHealth; 
+    [SerializeField] GameObject damageBox;
+    [SerializeField] GameObject healingOrb;
+    [SerializeField] List<Transform> spawnLocations;
+    [SerializeField] int sumThresholdToSpawnOrbs; 
+    [SerializeField] float maxSpawnTimer = 2f;
+    float timer;
+    string[] damageBoxTags = { "Untagged", "c", "cc" };
+
+    int currentOrbCount; 
+    [SerializeField] int currentBoxCount; 
+    [SerializeField] int sumOfSingularitiesHealth; 
     // Start is called before the first frame update
     void Start()
     {
-        currentBoxCount = FindObjectsOfType<DamageBox>().Length;  
+        timer = maxSpawnTimer; 
+        currentBoxCount = FindObjectsOfType<DamageBox>().Length;
+        currentOrbCount = FindObjectsOfType<HealingOrb>().Length; 
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentBoxCount < sumOfSingularitiesHealth)
+        timer -= Time.deltaTime;
+        if (currentBoxCount < sumOfSingularitiesHealth && timer <= 0)
         {
-            SpawnBox(); 
+            SpawnBox();
+            timer = maxSpawnTimer;
+        }
+        if
+            (sumOfSingularitiesHealth < sumThresholdToSpawnOrbs && currentOrbCount < sumOfSingularitiesHealth && timer <= 0) 
+        {
+            SpawnOrb();
+            timer = maxSpawnTimer;
+              
         }
     }
 
@@ -35,8 +52,21 @@ public class BoxSpawner : MonoBehaviour
     {
         Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
 
-        Instantiate(DamageBox, randomSpawnLocation, Quaternion.Euler(0,0,180));   
+        var damageBoxInstance = Instantiate(damageBox, randomSpawnLocation, Quaternion.Euler(0,0,180));
 
-        currentBoxCount++; 
+        /*
+        string randomBoxTag = damageBoxTags[Random.Range(0, damageBoxTags.Length)];
+        damageBoxInstance.tag = randomBoxTag; 
+        */
+        currentBoxCount = FindObjectsOfType<DamageBox>().Length;
+
     }
+
+    void SpawnOrb()
+    {
+        Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
+        var healingOrbInstance = Instantiate(healingOrb, randomSpawnLocation, Quaternion.identity);
+        currentOrbCount = FindObjectsOfType<HealingOrb>().Length;
+    }
+    
 }
