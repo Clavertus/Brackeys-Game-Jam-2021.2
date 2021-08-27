@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BoxArrow : MonoBehaviour
 {
-    Material mat;
+    public Material mat;
     Quaternion fixedRotation;
     public Texture frozenMat;
     public Texture normalMat;
@@ -20,7 +20,7 @@ public class BoxArrow : MonoBehaviour
      float rotTimer;
      bool rotating;
 
-     string rotation;
+     public string rotation;
      string color;
      string texture;
 
