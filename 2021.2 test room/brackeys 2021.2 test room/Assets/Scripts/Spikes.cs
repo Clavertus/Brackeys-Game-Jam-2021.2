@@ -4,12 +4,37 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
-    [SerializeField] float damage = .2f; 
+    [SerializeField] float damage = .2f;
+    string sourceString;
     private void OnCollisionEnter(Collision collision)
     {
+
+        switch (Random.Range(0, 4)){
+            case 0:
+                sourceString = "Impaled on a metal spike";
+                break;
+
+            case 1:
+                sourceString = "Got a flat tire on a spike";
+                break;
+
+            case 2:
+                sourceString = "Hit the funny spot with a spike";
+                break;
+
+            case 3:
+                sourceString = "Nailed it. Literally";
+                break;
+
+            default:
+                sourceString = "Impaled on a metal spike";
+                break;
+        }
+
+
         if (collision.gameObject.GetComponent<PlayerHealth>()) 
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, sourceString);
             Debug.Log("test");
         }
     }

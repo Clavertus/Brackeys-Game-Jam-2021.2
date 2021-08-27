@@ -24,13 +24,19 @@ public class GravityController : MonoBehaviour
 
     void Start()
     {
+        gravityScale = 20;
+        if(gameObject.name == "Player")
+        {
+            rb.WakeUp();
+            gravityScale = 10;
+        }
         rb = gameObject.GetComponent<Rigidbody>();
         rb.useGravity = false;
         levelManager = GameObject.FindGameObjectWithTag("levelManager");
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
 
 
@@ -136,12 +142,16 @@ public class GravityController : MonoBehaviour
             case 0:
                 if (tagType == "Untagged")
                 {
-                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * gravityScale);
+                    rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * gravityScale);
 
                 }
                 else if (tagType == "Inverted")
                 {
-                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * -gravityScale);
+                    rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * -gravityScale);
+                }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
                 }
 
                 break;
@@ -150,12 +160,16 @@ public class GravityController : MonoBehaviour
             case 1:
                 if (tagType == "Untagged")
                 {
-                    rb.AddForce(Vector3.left * 9.81f * Time.deltaTime * gravityScale);
+                    rb.AddForce(Vector3.left * 9.81f * Time.fixedDeltaTime * gravityScale);
 
                 }
                 else if (tagType == "Inverted")
                 {
-                    rb.AddForce(Vector3.left * 9.81f * Time.deltaTime * -gravityScale);
+                    rb.AddForce(Vector3.left * 9.81f * Time.fixedDeltaTime * -gravityScale);
+                }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
                 }
                 break;
 
@@ -164,12 +178,16 @@ public class GravityController : MonoBehaviour
             case 2:
                 if (tagType == "Untagged")
                 {
-                    rb.AddForce(Vector3.up * 9.81f * Time.deltaTime * gravityScale);
+                    rb.AddForce(Vector3.up * 9.81f * Time.fixedDeltaTime * gravityScale);
 
                 }
                 else if (tagType == "Inverted")
                 {
-                    rb.AddForce(Vector3.up * 9.81f * Time.deltaTime * -gravityScale);
+                    rb.AddForce(Vector3.up * 9.81f * Time.fixedDeltaTime * -gravityScale);
+                }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
                 }
                 break;
 
@@ -178,24 +196,32 @@ public class GravityController : MonoBehaviour
             case 3:
                 if (tagType == "Untagged")
                 {
-                    rb.AddForce(Vector3.right * 9.81f * Time.deltaTime * gravityScale);
+                    rb.AddForce(Vector3.right * 9.81f * Time.fixedDeltaTime * gravityScale);
 
                 }
                 else if (tagType == "Inverted")
                 {
-                    rb.AddForce(Vector3.right * 9.81f * Time.deltaTime * -gravityScale);
+                    rb.AddForce(Vector3.right * 9.81f * Time.fixedDeltaTime * -gravityScale);
+                }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
                 }
                 break;
 
             default:
                 if (tagType == "Untagged")
                 {
-                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * gravityScale);
+                    rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * gravityScale);
 
                 }
                 else if (tagType == "Inverted")
                 {
-                    rb.AddForce(Vector3.down * 9.81f * Time.deltaTime * -gravityScale);
+                    rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * -gravityScale);
+                }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
                 }
                 break;
 
