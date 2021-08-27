@@ -86,7 +86,7 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            var bulletInstance = Instantiate(bullet, gunTip.transform.position, Quaternion.identity);
+            var bulletInstance = Instantiate(bullet, gunTip.transform.position, capsule.transform.rotation);
             bulletInstance.GetComponent<Bullet>().BulletShot(aimDirection);    
         } 
 
