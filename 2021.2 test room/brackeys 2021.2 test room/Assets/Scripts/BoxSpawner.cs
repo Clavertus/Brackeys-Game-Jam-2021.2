@@ -12,12 +12,17 @@ public class BoxSpawner : MonoBehaviour
     float timer;
     string[] damageBoxTags = { "Untagged", "c", "cc" };
 
+    LevelManager levelManager;
+
+    public float gravAngle;
+
     int currentOrbCount; 
     [SerializeField] int currentBoxCount; 
     [SerializeField] int sumOfSingularitiesHealth; 
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>();
         timer = maxSpawnTimer; 
         currentBoxCount = FindObjectsOfType<DamageBox>().Length;
         currentOrbCount = FindObjectsOfType<HealingOrb>().Length; 
@@ -27,6 +32,26 @@ public class BoxSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (levelManager.currentGrav)
+        {
+            case 0:
+                gravAngle = 0;
+                break;
+
+            case 1:
+                gravAngle = -90;
+                break;
+
+            case 2:
+                gravAngle = -180;
+                break;
+
+            case 3:
+                gravAngle = -270;
+                break;
+
+
+        }
         timer -= Time.deltaTime;
         if (currentBoxCount < sumOfSingularitiesHealth && timer <= 0)
         {
@@ -53,6 +78,10 @@ public class BoxSpawner : MonoBehaviour
         Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
 
         var damageBoxInstance = Instantiate(damageBox, randomSpawnLocation, Quaternion.Euler(0,0,180));
+        damageBoxInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().mat.SetFloat(
+            damageBoxInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().rotation,
+            gravAngle);
+            
 
         /*
         string randomBoxTag = damageBoxTags[Random.Range(0, damageBoxTags.Length)];
