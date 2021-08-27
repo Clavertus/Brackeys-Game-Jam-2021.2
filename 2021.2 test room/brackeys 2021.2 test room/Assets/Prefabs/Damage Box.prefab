@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fbbad8c7eda20419bdd76a8c4dac0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mat: {fileID: 0}
   frozenMat: {fileID: 2800000, guid: 2b3bcb117e22a974d980f24865af797b, type: 3}
   normalMat: {fileID: 2800000, guid: 75f63471dc1438d438aa7291cfa5edab, type: 3}
+  rotation: 
   evil: 0
   hit: 0
   alive: 0
@@ -34,6 +36,7 @@ GameObject:
   - component: {fileID: 6606087727564647479}
   - component: {fileID: -7432643255030763330}
   - component: {fileID: -5512118938635532500}
+  - component: {fileID: -3012282148588266165}
   m_Layer: 0
   m_Name: Damage Box
   m_TagString: Untagged
@@ -190,6 +193,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cbf669c6cf34d446a76b5b7f3e9ca9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3012282148588266165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482207524717107281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95bbafd82b352646a04af6a019951f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1468261369800598030
