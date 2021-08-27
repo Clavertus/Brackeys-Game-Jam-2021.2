@@ -12,17 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fbbad8c7eda20419bdd76a8c4dac0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  t: 0
-  rotTime: 0
-  rotTimer: 0
-  rotating: 0
-  currentGrav: 0
-  u: 0
-  u_rotTime: 0
-  u_rotTimer: 0
-  u_rotating: 0
-  currentAngle: 0
-  desiredAngle: 0
+  frozenMat: {fileID: 0}
+  normalMat: {fileID: 0}
+  evil: 0
   hit: 0
   alive: 0
 --- !u!1 &8482207524717107281
@@ -41,6 +33,7 @@ GameObject:
   - component: {fileID: 8482207524717107286}
   - component: {fileID: 6606087727564647479}
   - component: {fileID: -7432643255030763330}
+  - component: {fileID: -5512118938635532500}
   m_Layer: 0
   m_Name: Damage Box
   m_TagString: Untagged
@@ -55,14 +48,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8482207524717107281}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -9.5, y: 5.14, z: 2.0828028}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1435230541264307685}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!33 &8482207524717107242
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -184,6 +177,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed0e62bd85d4c5d479bd134e6327d560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5512118938635532500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8482207524717107281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbf669c6cf34d446a76b5b7f3e9ca9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1468261369800598030

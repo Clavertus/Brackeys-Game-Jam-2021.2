@@ -1170,6 +1170,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Damage Box 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8420102665437043525, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
 --- !u!1 &867854912
@@ -1498,6 +1502,10 @@ PrefabInstance:
     - target: {fileID: 4587090857051953906, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
       propertyPath: m_Name
       value: Damage Box 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420102665437043525, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
@@ -1920,7 +1928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8769909109754636463, guid: 4f01a156a1a389947bfd235dea8497b4, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8769909109754636463, guid: 4f01a156a1a389947bfd235dea8497b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2264,6 +2272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Damage Box 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8420102665437043525, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
 --- !u!1001 &1177183770
@@ -2277,6 +2289,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Box Spawner '
       objectReference: {fileID: 0}
+    - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
+      propertyPath: damageBox
+      value: 
+      objectReference: {fileID: 8482207524717107281, guid: d714450f027bd8a43ba753188f0da4ff, type: 3}
     - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
       propertyPath: healingOrb
       value: 
@@ -2557,7 +2573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8470378091260992238, guid: 3882b5733a9f4f24981b0ff6f75d0baf, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8470378091260992238, guid: 3882b5733a9f4f24981b0ff6f75d0baf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3441,6 +3457,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Damage Box 1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8420102665437043525, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420102665437043525, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.596
+      objectReference: {fileID: 0}
+    - target: {fileID: 8420102665437043525, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2787ce4139e67df4298d2bae304aed7b, type: 3}
 --- !u!1 &2020629994
@@ -3930,7 +3958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4672045724194455010, guid: e4b1ae5b5409fd843b927d19f1d09660, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4672045724194455010, guid: e4b1ae5b5409fd843b927d19f1d09660, type: 3}
       propertyPath: m_LocalPosition.x
