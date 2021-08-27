@@ -9,6 +9,12 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject currentBullet;
 
+    public GameObject capsule;
+
+    public Material freezeMat;
+    public Material gravMat;
+    
+
     public string cb;
 
     void Start()
@@ -19,20 +25,27 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+
+
         if (Input.GetKeyDown("q") && cb == "gravity")
         {
             currentBullet = freezeBullet;
             cb = "freeze";
+            capsule.GetComponent<MeshRenderer>().material = freezeMat;
+        } else if (Input.GetKeyDown("q") && cb == "freeze")
+            {
+                currentBullet = gravityBullet;
+                cb = "gravity";
+            capsule.GetComponent<MeshRenderer>().material = gravMat;
+
         }
 
-        if (Input.GetKeyDown("q") && cb == "freeze")
-        {
-            currentBullet = gravityBullet;
-            cb = "gravity";
-        }
+
 
 
 
 
     }
+
+
 }

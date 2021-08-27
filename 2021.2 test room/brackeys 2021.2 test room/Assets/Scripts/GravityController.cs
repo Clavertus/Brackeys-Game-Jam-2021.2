@@ -149,6 +149,10 @@ public class GravityController : MonoBehaviour
                 {
                     rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * -gravityScale);
                 }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
+                }
 
                 break;
 
@@ -162,6 +166,10 @@ public class GravityController : MonoBehaviour
                 else if (tagType == "Inverted")
                 {
                     rb.AddForce(Vector3.left * 9.81f * Time.fixedDeltaTime * -gravityScale);
+                }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
                 }
                 break;
 
@@ -177,6 +185,10 @@ public class GravityController : MonoBehaviour
                 {
                     rb.AddForce(Vector3.up * 9.81f * Time.fixedDeltaTime * -gravityScale);
                 }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
+                }
                 break;
 
 
@@ -191,6 +203,10 @@ public class GravityController : MonoBehaviour
                 {
                     rb.AddForce(Vector3.right * 9.81f * Time.fixedDeltaTime * -gravityScale);
                 }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
+                }
                 break;
 
             default:
@@ -202,6 +218,10 @@ public class GravityController : MonoBehaviour
                 else if (tagType == "Inverted")
                 {
                     rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * -gravityScale);
+                }
+                else if (tagType == "Frozen")
+                {
+                    rb.velocity = new Vector3(0, 0, 0);
                 }
                 break;
 

@@ -3897,18 +3897,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3382224129552837856, guid: e4b1ae5b5409fd843b927d19f1d09660, type: 3}
-      propertyPath: capsule
-      value: 
-      objectReference: {fileID: 1837818987}
-    - target: {fileID: 3382224129552837856, guid: e4b1ae5b5409fd843b927d19f1d09660, type: 3}
-      propertyPath: gravMat
-      value: 
-      objectReference: {fileID: 2100000, guid: d337d32e3ea494e4396cce7cdfb81d11, type: 2}
-    - target: {fileID: 3382224129552837856, guid: e4b1ae5b5409fd843b927d19f1d09660, type: 3}
-      propertyPath: freezeMat
-      value: 
-      objectReference: {fileID: 2100000, guid: a617fef9524a42540a2cd200a7e84abe, type: 2}
-    - target: {fileID: 3382224129552837856, guid: e4b1ae5b5409fd843b927d19f1d09660, type: 3}
       propertyPath: freezeBullet
       value: 
       objectReference: {fileID: 5547653102243341944, guid: a411343e0e9d45748bf748fd9158fe58, type: 3}
