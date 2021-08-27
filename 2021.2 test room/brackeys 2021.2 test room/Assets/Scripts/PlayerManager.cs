@@ -4,21 +4,48 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public GameObject c_Bullet;
-    public GameObject cc_Bullet;
+    public GameObject gravityBullet;
+    public GameObject freezeBullet;
 
     public GameObject currentBullet;
 
+    public GameObject capsule;
+
+    public Material freezeMat;
+    public Material gravMat;
+    
+
+    public string cb;
+
+    void Start()
+    {
+        currentBullet = gravityBullet;
+        cb = "gravity";
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown("q"))
+
+
+        if (Input.GetKeyDown("q") && cb == "gravity")
         {
-            currentBullet = c_Bullet;
+            currentBullet = freezeBullet;
+            cb = "freeze";
+            capsule.GetComponent<MeshRenderer>().material = freezeMat;
+        } else if (Input.GetKeyDown("q") && cb == "freeze")
+            {
+                currentBullet = gravityBullet;
+                cb = "gravity";
+            capsule.GetComponent<MeshRenderer>().material = gravMat;
+
         }
 
-        if (Input.GetKeyDown("e"))
-        {
-            currentBullet = cc_Bullet;
-        }
+
+
+
+
+
     }
+
+
 }
