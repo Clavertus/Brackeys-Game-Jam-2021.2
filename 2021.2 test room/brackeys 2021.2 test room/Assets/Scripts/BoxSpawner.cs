@@ -35,7 +35,7 @@ public class BoxSpawner : MonoBehaviour
     {
         Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
 
-        Instantiate(DamageBox, randomSpawnLocation, Quaternion.identity);
+        Instantiate(DamageBox, randomSpawnLocation, Quaternion.Euler(0,0,180));   
 
         currentBoxCount++; 
     }
