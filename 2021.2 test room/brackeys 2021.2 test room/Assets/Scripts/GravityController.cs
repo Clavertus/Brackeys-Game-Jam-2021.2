@@ -36,7 +36,7 @@ public class GravityController : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
 
 

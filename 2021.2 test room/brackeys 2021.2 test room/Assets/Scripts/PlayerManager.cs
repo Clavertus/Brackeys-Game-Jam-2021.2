@@ -4,21 +4,35 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public GameObject c_Bullet;
-    public GameObject cc_Bullet;
+    public GameObject gravityBullet;
+    public GameObject freezeBullet;
 
     public GameObject currentBullet;
 
+    public string cb;
+
+    void Start()
+    {
+        currentBullet = gravityBullet;
+        cb = "gravity";
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("q") && cb == "gravity")
         {
-            currentBullet = c_Bullet;
+            currentBullet = freezeBullet;
+            cb = "freeze";
         }
 
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("q") && cb == "freeze")
         {
-            currentBullet = cc_Bullet;
+            currentBullet = gravityBullet;
+            cb = "gravity";
         }
+
+
+
+
     }
 }

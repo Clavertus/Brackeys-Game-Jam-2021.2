@@ -17,7 +17,7 @@ public class IsGrounded : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
+            
             isGrounded = true;
             jumpsRemaining = maxJumpsRemaining;
       
