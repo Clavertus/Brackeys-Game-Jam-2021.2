@@ -7,8 +7,16 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject gunTip;
+    [SerializeField] GameObject capsule;
+    [SerializeField] GameObject player;
+
+    public Vector3 mouseScreenPosition;
+    public Vector3 mouseWorldPosition;
+    public Vector3 mouseInput;
+
+    [SerializeField] Transform target;
+
     [SerializeField] float bulletSpeed;
-    Vector3 mouseWorldPosition;
     Vector3 aimDirection; 
     float angle;
     bool isDead = false; 
@@ -20,6 +28,10 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
+        bullet = player.GetComponent<PlayerManager>().currentBullet;
+        capsule.transform.LookAt(target);
+
+
         if(isDead) { return; }
         Aiming();
         Shooting();
@@ -32,11 +44,22 @@ public class Gun : MonoBehaviour
 
     private void Aiming()
     {
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 1000f);
 
-         aimDirection = (mouseWorldPosition - transform.position).normalized; 
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0, 0, angle);
+        mouseScreenPosition = Input.mousePosition;
+
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x,
+        mouseScreenPosition.y,
+        Camera.main.nearClipPlane + 1));
+
+        mouseInput = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z);
+
+
+
+        aimDirection = (mouseInput - transform.position).normalized; 
+
+        
+
+
     }
 
     private void Shooting()

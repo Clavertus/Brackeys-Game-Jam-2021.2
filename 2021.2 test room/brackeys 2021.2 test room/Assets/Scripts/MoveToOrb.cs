@@ -16,11 +16,15 @@ public class GravitySwitcher : MonoBehaviour
     [SerializeField] float rotateTime = 1f;
     [SerializeField] float rotateSpeed = .1f;
     [SerializeField] float rotateSpeedIncrement = .1f;
+
+    public float xddddddddd;
+
     Vector3 orbPos;
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
         myRigidbody.useGravity = false;
+
     }
 
     
@@ -33,11 +37,11 @@ public class GravitySwitcher : MonoBehaviour
     public void EnteringOrb(GameObject orb)
     {
        StartCoroutine(MoveTowardsOrb(orb));
+
     }
 
     private IEnumerator MoveTowardsOrb(GameObject orb)
-    {        
-        
+    {
         myRigidbody.isKinematic = enabled;
         orbPos = orb.transform.position; 
         enteredOrbArea = true;  
@@ -48,23 +52,30 @@ public class GravitySwitcher : MonoBehaviour
 
     //called in update when isMovingToOrb is true.
     void MoveTowards()
-    {   
-          transform.position = Vector3.MoveTowards 
+    {
+
+
+        transform.position = Vector3.MoveTowards 
                      (transform.position, orbPos, portalSuckSpeed);  
     } 
 
     //called in update when enteredOrbArea is true. 
     void Rotate()
     {
-        transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().alive = false;
         rotateSpeed -= rotateSpeedIncrement;
-        transform.Rotate(rotateSpeed, rotateSpeed, rotateSpeed * -rotateSpeed, Space.World);   
+        transform.Rotate(rotateSpeed, rotateSpeed, rotateSpeed * -rotateSpeed, Space.World);
+
     }
 
 
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.CompareTag("center chaos")) { Destroy(gameObject);  }   
+        if(other.CompareTag("center chaos")) 
+        {
+            
+            Destroy(gameObject); 
+            
+        }   
     }
 }
