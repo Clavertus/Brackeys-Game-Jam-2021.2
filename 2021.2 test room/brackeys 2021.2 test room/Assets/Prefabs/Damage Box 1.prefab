@@ -12,25 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fbbad8c7eda20419bdd76a8c4dac0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frozenMat: {fileID: 0}
-  normalMat: {fileID: 0}
-  thawTime: 0
-  currthaw: 0
-  t: 0
-  rotTime: 0
-  rotTimer: 0
-  rotating: 0
-  currentGrav: 0
-  u: 0
-  u_rotTime: 0
-  u_rotTimer: 0
-  u_rotating: 0
-  v: 0
-  v_rotTime: 0
-  v_rotTimer: 0
-  v_rotating: 0
-  currentAngle: 0
-  desiredAngle: 0
+  frozenMat: {fileID: 2800000, guid: 2b3bcb117e22a974d980f24865af797b, type: 3}
+  normalMat: {fileID: 2800000, guid: 75f63471dc1438d438aa7291cfa5edab, type: 3}
+  evil: 0
   hit: 0
   alive: 0
 --- !u!1 &4587090857051953906
@@ -50,6 +34,7 @@ GameObject:
   - component: {fileID: 1275589415101558420}
   - component: {fileID: 5964936685306163741}
   - component: {fileID: 1038658840932343937}
+  - component: {fileID: 3113616288171837975}
   m_Layer: 0
   m_Name: Damage Box 1
   m_TagString: Untagged
@@ -205,6 +190,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a95bbafd82b352646a04af6a019951f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3113616288171837975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587090857051953906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbf669c6cf34d446a76b5b7f3e9ca9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6808892841621332141
