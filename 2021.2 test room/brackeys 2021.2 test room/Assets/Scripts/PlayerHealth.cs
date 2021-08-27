@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        maxFuel = 20;
+        maxFuel = 7;
         maxHealth = 100;
         fuel = maxFuel;
         health = maxHealth; 
@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         {
             GetComponent<PlayerMovement>().DeadState();
             gun.GetComponent<Gun>().GunDeadState();
+            GetComponent<ArmAim>().enabled = false;
 
             gameOver.SetActive(true);
             anim.Play("TextFallDown");

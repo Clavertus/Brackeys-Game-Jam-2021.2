@@ -1806,6 +1806,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8769909109754636458, guid: 4f01a156a1a389947bfd235dea8497b4, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8769909109754636460, guid: 4f01a156a1a389947bfd235dea8497b4, type: 3}
       propertyPath: m_CollisionDetection
       value: 2
@@ -1820,7 +1824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8769909109754636463, guid: 4f01a156a1a389947bfd235dea8497b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3493304
+      value: -2.46
       objectReference: {fileID: 0}
     - target: {fileID: 8769909109754636463, guid: 4f01a156a1a389947bfd235dea8497b4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2444,6 +2448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3882b5733a9f4f24981b0ff6f75d0baf, type: 3}
+--- !u!1 &1799905489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1144963538794125844, guid: d458e6dd253e7464ab2feaff2d82bb77, type: 3}
+  m_PrefabInstance: {fileID: 2112281148809642878}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1802767728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,6 +3727,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3040752824005354849}
     - target: {fileID: 2112281147806357483, guid: d458e6dd253e7464ab2feaff2d82bb77, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1799905489}
+    - target: {fileID: 2112281147806357483, guid: d458e6dd253e7464ab2feaff2d82bb77, type: 3}
       propertyPath: anim
       value: 
       objectReference: {fileID: 1065736628}
@@ -3734,6 +3747,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3040752824005354849}
     - target: {fileID: 3720050731635056486, guid: d458e6dd253e7464ab2feaff2d82bb77, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413023734433385832, guid: d458e6dd253e7464ab2feaff2d82bb77, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

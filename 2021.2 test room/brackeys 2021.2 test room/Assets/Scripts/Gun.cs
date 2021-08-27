@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float bulletSpeed;
     public Vector3 aimDirection; 
     float angle;
-    bool isDead = false; 
+    public bool isDead = false; 
 
 
     private void Start()
@@ -33,22 +33,28 @@ public class Gun : MonoBehaviour
     }
     void Update()
     {
-        bullet = player.GetComponent<PlayerManager>().currentBullet;
+        if (!isDead)
+        {
+            bullet = player.GetComponent<PlayerManager>().currentBullet;
 
-         x_mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            x_mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        lookAt = x_mouseScreenPosition ;
+            lookAt = x_mouseScreenPosition;
 
-        float AngleRad = Mathf.Atan2(lookAt.y + aimDirection.y * 100 - this.transform.position.y, lookAt.x + aimDirection.x * 100 - this.transform.position.x);
+            float AngleRad = Mathf.Atan2(lookAt.y + aimDirection.y * 100 - this.transform.position.y, lookAt.x + aimDirection.x * 100 - this.transform.position.x);
 
-        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
 
-        capsule.transform.rotation = Quaternion.Euler(0, 0, AngleDeg - 90);
+            capsule.transform.rotation = Quaternion.Euler(0, 0, AngleDeg - 90);
 
 
+        }
         if (isDead) { return; }
-        Aiming();
-        Shooting();
+        if (!isDead)
+        {
+            Aiming();
+            Shooting();
+        }
     }
 
     public void GunDeadState()
