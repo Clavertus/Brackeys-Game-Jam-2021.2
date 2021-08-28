@@ -9,21 +9,28 @@ public class BoxSpawner : MonoBehaviour
     [SerializeField] List<Transform> spawnLocations;
     [SerializeField] int sumThresholdToSpawnOrbs; 
     [SerializeField] float maxSpawnTimer = 2f;
+    [SerializeField] int spawnExtraBoxesAtCount = 10;
+    [SerializeField] int extraBoxesToSpawn = 5;
+    [SerializeField] float maxTimeBetweenSpawns = 5f;
+    [SerializeField] int maxBoxes = 50;
+    [SerializeField] int maxOrbs = 10; 
+    float betweenSpawnsTimer; 
     float timer;
     string[] damageBoxTags = { "Untagged", "c", "cc" };
 
-    LevelManager levelManager;
+    LevelManager levelManager; 
 
     public float gravAngle;
 
     int currentOrbCount; 
-    [SerializeField] int currentBoxCount; 
-    [SerializeField] int sumOfSingularitiesHealth; 
+    int currentBoxCount;  
+    int sumOfSingularitiesHealth; 
     // Start is called before the first frame update
     void Start()
     {
         levelManager = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>();
-        timer = maxSpawnTimer; 
+        timer = maxSpawnTimer;
+        betweenSpawnsTimer = maxTimeBetweenSpawns; 
         currentBoxCount = FindObjectsOfType<DamageBox>().Length;
         currentOrbCount = FindObjectsOfType<HealingOrb>().Length; 
 
@@ -52,7 +59,10 @@ public class BoxSpawner : MonoBehaviour
 
 
         }
-        timer -= Time.deltaTime;
+
+
+
+        timer -= Time.deltaTime; 
         if (currentBoxCount < sumOfSingularitiesHealth && timer <= 0)
         {
             SpawnBox();
@@ -63,44 +73,69 @@ public class BoxSpawner : MonoBehaviour
         {
             SpawnOrb();
             timer = maxSpawnTimer;
-              
+        }
+
+        betweenSpawnsTimer -= Time.deltaTime; 
+        if(betweenSpawnsTimer <= 0)
+        {
+            SpawnBox();
         }
     }
+
+   
 
     public void HealthSum(int singularityHealthCange)
     {
         sumOfSingularitiesHealth += singularityHealthCange;
-        Debug.Log(sumOfSingularitiesHealth); 
     }
 
     void SpawnBox()
     {
+        if(currentBoxCount >= maxBoxes) { return;  }
         Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
 
         var damageBoxInstance = Instantiate(damageBox, randomSpawnLocation, Quaternion.Euler(0,0,180));
         damageBoxInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().mat.SetFloat(
             damageBoxInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().rotation,
             gravAngle);
-            
 
+        betweenSpawnsTimer = maxTimeBetweenSpawns; 
         /*
         string randomBoxTag = damageBoxTags[Random.Range(0, damageBoxTags.Length)];
         damageBoxInstance.tag = randomBoxTag; 
         */
         currentBoxCount = FindObjectsOfType<DamageBox>().Length;
+        Debug.Log(currentBoxCount);
+        if (currentBoxCount < spawnExtraBoxesAtCount)
+        {
+            StartCoroutine(SpawnExtraBoxes());
+        }
 
     }
 
     void SpawnOrb()
     {
+        if (currentOrbCount >= maxOrbs) { return; } 
+
         Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
-        var healingOrbInstance = Instantiate(healingOrb, randomSpawnLocation, Quaternion.identity);
+        var healingOrbInstance = Instantiate(healingOrb, randomSpawnLocation, Quaternion.Euler(0,0,180));
         healingOrbInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().mat.SetFloat(
             healingOrbInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().rotation,
             gravAngle);
 
 
+         
         currentOrbCount = FindObjectsOfType<HealingOrb>().Length;
     }
-    
+    private IEnumerator SpawnExtraBoxes()
+    {
+
+        for (int i = 0; i < extraBoxesToSpawn; i++)
+        {
+            yield return new WaitForSeconds(maxSpawnTimer);
+            SpawnBox(); 
+        }
+        betweenSpawnsTimer = maxTimeBetweenSpawns;
+
+    }
 }

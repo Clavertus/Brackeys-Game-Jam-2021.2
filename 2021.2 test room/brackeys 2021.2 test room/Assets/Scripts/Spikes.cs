@@ -38,7 +38,6 @@ public class Spikes : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerHealth>()) 
         {
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, sourceString);
-            Debug.Log("test");
         }
     }
 }

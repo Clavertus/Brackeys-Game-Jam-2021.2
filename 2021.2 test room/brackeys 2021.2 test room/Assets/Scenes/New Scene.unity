@@ -2265,6 +2265,14 @@ PrefabInstance:
       propertyPath: healingOrb
       value: 
       objectReference: {fileID: 8195404836897831164, guid: 2d832dbd45872104aa7639dcb6bef0aa, type: 3}
+    - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
+      propertyPath: extraBoxesToSpawn
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
+      propertyPath: maxTimeBetweenSpawns
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3681398995552176334, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
       propertyPath: m_RootOrder
       value: 11
