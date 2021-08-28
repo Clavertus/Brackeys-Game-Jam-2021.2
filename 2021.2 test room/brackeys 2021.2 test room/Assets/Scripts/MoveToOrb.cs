@@ -73,8 +73,7 @@ public class GravitySwitcher : MonoBehaviour
     {
         if(other.CompareTag("center chaos"))     
         {
-            if (gameObject.GetComponent<DamageBox>()) { FindObjectOfType<BoxSpawner>().UpdateBoxCount(); }
-            if (gameObject.GetComponent<HealingOrb>()) { FindObjectOfType<BoxSpawner>().UpdateOrbCount(); } 
+             
 
             Destroy(gameObject);  
         }   
