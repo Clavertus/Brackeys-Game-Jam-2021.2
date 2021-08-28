@@ -37,13 +37,16 @@ public class PlayerHealth : MonoBehaviour
             GetComponent<PlayerManager>().PlaySound(GetComponent<PlayerManager>().clang1SFX);
         }
 
-
-        health -= damage;
-
-        if(damage >= health)
+        if (damage >= health)
         {
             health = 0;
         }
+        else
+        {
+            health -= damage;
+        }
+
+        
 
         if (health <= Mathf.Epsilon)
         {
