@@ -37,7 +37,7 @@ public class FreezeBullet : MonoBehaviour
         if (other.gameObject.GetComponent<GravityController>() && other.gameObject.name != "Player")
         {
 
-
+            other.gameObject.transform.GetChild(1).gameObject.SetActive(true);
             other.gameObject.tag = ("Frozen");
             other.gameObject.transform.GetChild(0).GetChild(1).tag = ("Frozen");
             other.gameObject.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().hit = true;
