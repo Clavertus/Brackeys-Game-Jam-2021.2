@@ -46,6 +46,8 @@ public class Health : MonoBehaviour
 
         ChaosStateAnimator(); 
         if (health <= 0) { Destroy(outerChaosOrb);  }
+        FindObjectOfType<BoxSpawner>().UpdateBoxCount();
+           
     }
     
     void Heal()
@@ -58,7 +60,8 @@ public class Health : MonoBehaviour
         health++;
         ChaosStateAnimator();
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(1);
-        gameObject.GetComponent<ChaosState>().GetCurrentHealth(1); 
+        gameObject.GetComponent<ChaosState>().GetCurrentHealth(1);
+        FindObjectOfType<BoxSpawner>().UpdateOrbCount();
 
     }
 
