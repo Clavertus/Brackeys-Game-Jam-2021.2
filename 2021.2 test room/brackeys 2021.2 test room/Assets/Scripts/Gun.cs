@@ -87,15 +87,7 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             var bulletInstance = Instantiate(bullet, gunTip.transform.position, capsule.transform.rotation);
-            bulletInstance.GetComponent<Bullet>().BulletShot(aimDirection);
-            if (player.GetComponent<PlayerManager>().currentBullet == player.GetComponent<PlayerManager>().gravityBullet)
-            {
-                player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().gravSFX);
-            } else if(player.GetComponent<PlayerManager>().currentBullet == player.GetComponent<PlayerManager>().freezeBullet)
-            {
-                player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().freezeSFX);
-
-            }
+            bulletInstance.GetComponent<Bullet>().BulletShot(aimDirection);    
         } 
 
     }

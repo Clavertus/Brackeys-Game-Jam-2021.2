@@ -118,13 +118,7 @@ public class BoxSpawner : MonoBehaviour
         if (currentOrbCount >= maxOrbs) { return; } 
 
         Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
-        var healingOrbInstance = Instantiate(healingOrb, randomSpawnLocation, Quaternion.Euler(0,0,180));
-        healingOrbInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().mat.SetFloat(
-            healingOrbInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().rotation,
-            gravAngle);
-
-
-         
+        var healingOrbInstance = Instantiate(healingOrb, randomSpawnLocation, Quaternion.Euler(0,0,180)); 
         currentOrbCount = FindObjectsOfType<HealingOrb>().Length;
     }
     private IEnumerator SpawnExtraBoxes()

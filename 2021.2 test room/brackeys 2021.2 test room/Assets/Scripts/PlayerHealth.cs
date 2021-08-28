@@ -29,15 +29,6 @@ public class PlayerHealth : MonoBehaviour
     
     public void TakeDamage(float damage, string source)
     {
-        if (damage < 14)
-        {
-            GetComponent<PlayerManager>().PlaySound(GetComponent<PlayerManager>().clang2SFX);
-        } else
-        {
-            GetComponent<PlayerManager>().PlaySound(GetComponent<PlayerManager>().clang1SFX);
-        }
-
-
         health -= damage;
 
         if(damage >= health)

@@ -59,7 +59,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 2
   outerChaosOrb: {fileID: 8470378091260992235}
-  boxSpawner: {fileID: 0}
 --- !u!1 &8470378091260992235
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +75,7 @@ GameObject:
   - component: {fileID: 8470378091260992237}
   m_Layer: 0
   m_Name: Singularity
-  m_TagString: Singularity zone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
