@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     // 2 for up
     // 3 for right
 
-
+    
 
     float currTimer;
     public float maxTimer;
@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     bool rotating;
     public bool u_rotating;
 
-    public Transform player;
+    public GameObject player;
 
     void Awake()
     {
@@ -52,12 +52,16 @@ public class LevelManager : MonoBehaviour
                 currentGrav = 0;
                 rotating = true;
                 u_rotating = true;
+                player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().gravityswitchSFX);
+
             }
             else
             {
                 currentGrav++;
                 rotating = true;
                 u_rotating = true;
+                player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().gravityswitchSFX);
+
             }
         }
 
@@ -110,7 +114,7 @@ public class LevelManager : MonoBehaviour
           
     
             currentEuler = new Vector3(0, 0, newZ);                 //that actually does the spinning
-            player.eulerAngles = currentEuler;
+            player.transform.eulerAngles = currentEuler;
         }
 
 

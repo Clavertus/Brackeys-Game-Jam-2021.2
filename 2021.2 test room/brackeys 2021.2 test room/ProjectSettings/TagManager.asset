@@ -10,6 +10,9 @@ TagManager:
   - levelManager
   - Inverted
   - Frozen
+  - floor
+  - Singularity zone
+  - jar
   layers:
   - Default
   - TransparentFX

@@ -95,6 +95,11 @@ public class BoxSpawner : MonoBehaviour
     {
         Vector3 randomSpawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)].position;
         var healingOrbInstance = Instantiate(healingOrb, randomSpawnLocation, Quaternion.identity);
+        healingOrbInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().mat.SetFloat(
+            healingOrbInstance.transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().rotation,
+            gravAngle);
+
+
         currentOrbCount = FindObjectsOfType<HealingOrb>().Length;
     }
     
