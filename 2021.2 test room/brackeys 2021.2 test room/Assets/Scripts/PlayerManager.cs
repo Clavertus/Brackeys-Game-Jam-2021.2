@@ -13,7 +13,31 @@ public class PlayerManager : MonoBehaviour
 
     public Material freezeMat;
     public Material gravMat;
+
+    public AudioClip gravSFX;
+    public AudioClip freezeSFX;
+    public AudioClip clang1SFX;
+    public AudioClip clang2SFX;
+    public AudioClip landingSFX;
+    public AudioClip landing2SFX;
+    public AudioClip pickupSFX;
+    public AudioClip gravityswitchSFX;
+
+
+    public AudioManager audioManager;
     
+    public void PlaySound(AudioClip sfx)
+    {
+        AudioSource source = gameObject.AddComponent<AudioSource>();
+        if(sfx == landingSFX || sfx == landing2SFX)
+        {
+            source.volume = 0.2f;
+        }
+        source.clip = sfx;
+        source.Play();
+        Destroy(source, source.clip.length);
+
+    }
 
     public string cb;
 
@@ -45,6 +69,18 @@ public class PlayerManager : MonoBehaviour
 
 
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "jar")
+        {
+            Destroy(other.gameObject);
+
+            GetComponent<PlayerHealth>().fuel = GetComponent<PlayerHealth>().maxFuel;
+            GetComponent<PlayerHealth>().health = GetComponent<PlayerHealth>().maxHealth;
+            GetComponent<PlayerManager>().PlaySound(GetComponent<PlayerManager>().pickupSFX);
+        }
     }
 
 
