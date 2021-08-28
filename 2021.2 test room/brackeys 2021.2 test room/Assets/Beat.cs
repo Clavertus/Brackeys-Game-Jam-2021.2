@@ -40,34 +40,39 @@ public class Beat : MonoBehaviour
     void Start()
     {
 
-/*
+
         for (int i = 0; i < time_s.Length; i++)
         {
             time_s[i] = Mathf.RoundToInt(sampleTimes[i] * levelMusic.clip.frequency);
         }
-        */
+        
 
 
         v = GetComponent<Volume>();
         v.profile.TryGet(out vg);
         StartCoroutine("Pulse");
+        StartCoroutine("NewUpdate");
     }
 
 
-    void Update()
-    {
+    IEnumerator NewUpdate()
+    {  
         if (beatStarted)
         {
-            for (var k = 1; k < time_s.Length; k++)
+            for (var k = 0; k < time_s.Length; k++)
             {              
                 var nSample = time_s[k];
                 while (levelMusic.timeSamples < nSample)
                 {
-                    continue;
+                    yield return 0;
                 }
                 vg.intensity.value = 0.5f;
             }
-        }    
+        }
+
+        StartCoroutine("NewUpdate");
+
+        
     }
 
     public IEnumerator Pulse()

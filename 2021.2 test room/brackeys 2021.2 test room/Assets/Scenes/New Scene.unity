@@ -3895,6 +3895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8432055559104069289, guid: f69a6e5e822eed64dbc1ab62acfea09c, type: 3}
+      propertyPath: gravityswitchSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 889af2902dd363048b95c9ca20447d3c, type: 3}
     - target: {fileID: 8432055559104069290, guid: f69a6e5e822eed64dbc1ab62acfea09c, type: 3}
       propertyPath: anim
       value: 
@@ -3989,6 +3993,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1713854349667344782}
     - target: {fileID: 6048994122432235711, guid: 2c2682a6e98a2fd46a4b98f9959df356, type: 3}
+      propertyPath: interval
+      value: 7.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048994122432235711, guid: 2c2682a6e98a2fd46a4b98f9959df356, type: 3}
       propertyPath: maxTimer
       value: 7.68
       objectReference: {fileID: 0}
@@ -3996,5 +4004,9 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6048994122432235711, guid: 2c2682a6e98a2fd46a4b98f9959df356, type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 190216803}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c2682a6e98a2fd46a4b98f9959df356, type: 3}
