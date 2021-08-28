@@ -18,10 +18,10 @@ public class IsGrounded : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "floor")
+        if (other.tag == "floor" && !isGrounded)
         {
             player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().landingSFX);
-        } else if (other.tag == "Inverted" || other.tag == "Untagged" || other.tag == "Frozen")
+        } else if (other.tag == "Inverted" || other.tag == "Untagged" || other.tag == "Frozen" )
         {
             player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().landing2SFX);
         }
