@@ -34,12 +34,17 @@ public class LevelManager : MonoBehaviour
 
     public AudioSource levelMusic;
 
+    public int nSample;
+    public int nextSample;
+
     public GameObject player;
 
     void Awake()
     {
         rotating = false;
         u_rotating = false;
+        nSample = 1;
+        nextSample = 1;
 
         interval = 7.68f;
         beatStarted = false;
@@ -74,7 +79,8 @@ public class LevelManager : MonoBehaviour
         {
             for (var k = 0; k < time_s.Length; k++)
             {
-                var nSample = time_s[k];
+                nSample = time_s[k];
+                nextSample = time_s[k + 1];
                 while (levelMusic.timeSamples < nSample)
                 {
                     yield return 0;
