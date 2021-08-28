@@ -10,13 +10,13 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject outerChaosOrb;
     Vector3 myScale;
 
-    [SerializeField] BoxSpawner boxSpawner; 
+    [SerializeField] BoxSpawner boxSpawner;
+    int chaosState = 0; 
     private void Start()
     {
         health = startingHealth;
         myScale = outerChaosOrb.transform.localScale;
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(startingHealth);
-        gameObject.GetComponent<ChaosState>().GetCurrentHealth(startingHealth);
         ChaosStateAnimator(); 
 
     }
@@ -42,7 +42,7 @@ public class Health : MonoBehaviour
         */
         health--;
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(-1);
-        gameObject.GetComponent<ChaosState>().GetCurrentHealth(-1);
+        
 
         ChaosStateAnimator(); 
         if (health <= 0) { Destroy(outerChaosOrb);  }
@@ -60,26 +60,28 @@ public class Health : MonoBehaviour
         health++;
         ChaosStateAnimator();
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(1);
-        gameObject.GetComponent<ChaosState>().GetCurrentHealth(1);
         FindObjectOfType<BoxSpawner>().UpdateOrbCount();
 
     }
 
     void ChaosStateAnimator()
     {
-        if(health >= startingHealth * .8) { animator.SetBool("HealthStage1", true); }
+        if(health >= startingHealth * .8) { animator.SetBool("HealthStage1", true); chaosState = 0; }
         else { animator.SetBool("HealthStage1", false); }
 
-        if (health >= startingHealth * .6 && health < startingHealth * .8) { animator.SetBool("HealthStage2", true); } 
+        if (health >= startingHealth * .6 && health < startingHealth * .8) { animator.SetBool("HealthStage2", true); chaosState = 0; } 
         else { animator.SetBool("HealthStage2", false); }
 
-        if (health >= startingHealth * .4 && health < startingHealth * .6) { animator.SetBool("HealthStage3", true); }
+        if (health >= startingHealth * .4 && health < startingHealth * .6) { animator.SetBool("HealthStage3", true); chaosState = 1; }
         else { animator.SetBool("HealthStage3", false); }
 
-        if (health >= startingHealth * .2 && health < startingHealth * .4) { animator.SetBool("HealthStage4", true); }
+        if (health >= startingHealth * .2 && health < startingHealth * .4) { animator.SetBool("HealthStage4", true); chaosState = 2; }
         else { animator.SetBool("HealthStage4", false); }
 
-        if ( health < startingHealth * .2) { animator.SetBool("HealthStage5", true); }
-        else { animator.SetBool("HealthStage5", false); }   
+        if ( health < startingHealth * .2) { animator.SetBool("HealthStage5", true); chaosState = 3; }
+        else { animator.SetBool("HealthStage5", false); }
+
+        GetChaosState();
     }
+    public void GetChaosState() { gameObject.GetComponent<ChaosState>().UpdateChaosState(chaosState); }   
 }

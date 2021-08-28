@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
       propertyPath: maxBoxes
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
       propertyPath: damageBox
@@ -1458,9 +1458,9 @@ PrefabInstance:
       propertyPath: boxSpawner
       value: 
       objectReference: {fileID: 1213056406}
-    - target: {fileID: 597161944, guid: f1297749a8d3f444a8a5dac10116d2e4, type: 3}
-      propertyPath: startingHealth
-      value: 5
+    - target: {fileID: 597161945, guid: f1297749a8d3f444a8a5dac10116d2e4, type: 3}
+      propertyPath: damagebullet
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6019500045318987456, guid: f1297749a8d3f444a8a5dac10116d2e4, type: 3}
       propertyPath: m_RootOrder
