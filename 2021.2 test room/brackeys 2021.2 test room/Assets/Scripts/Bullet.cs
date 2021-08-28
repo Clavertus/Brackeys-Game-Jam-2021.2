@@ -18,6 +18,10 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         if(bulletWasShot) {  BulletVelocity();  } 
+        if(gameObject.GetComponent<Rigidbody>().velocity == Vector3.zero)
+        {
+            Destroy(gameObject);
+        }
     }
     public void BulletShot(Vector3 aimDirection)
     {
