@@ -14,6 +14,8 @@ public class JarSpawner : MonoBehaviour
 
     public bool jarSpawned;
 
+    public int jarCount;
+
     public float jarDelayTime;
 
 
@@ -32,9 +34,10 @@ public class JarSpawner : MonoBehaviour
 
     void Update()
     {
-        if ((player.GetComponent<PlayerHealth>().health < 50 || player.GetComponent<PlayerHealth>().fuel < 2) && !jarSpawned)
+        if ((player.GetComponent<PlayerHealth>().health < 50 || player.GetComponent<PlayerHealth>().fuel < 2) && !jarSpawned && jarCount < 5)
         {
-         
+
+                 jarCount++;
                 Instantiate(jar, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
                 jarSpawned = true;
                 StartCoroutine("Timer");

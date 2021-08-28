@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 597161943}
   - component: {fileID: 597161942}
   - component: {fileID: 597161945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Center
   m_TagString: center chaos
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409ce2e8bf5718d47a6e201014cf290f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagebullet: {fileID: 0}
+  damagebullet: {fileID: 3671141072094015339, guid: 12d4b49bec01b8c45b12eb24883db0c9, type: 3}
   bulletSpeed: 800
   maxShootTimer: 1
   shootTimerDecrease: 0.5
@@ -5350,7 +5350,7 @@ Transform:
   m_GameObject: {fileID: 1519847325658050024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1519847327112502475}
   - {fileID: 1519847326904314570}
@@ -39230,7 +39230,7 @@ Transform:
   m_GameObject: {fileID: 1519847326904314571}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1519847325658050031}
   m_RootOrder: 1
@@ -48906,7 +48906,7 @@ Transform:
   m_GameObject: {fileID: 1519847327112502452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1519847325658050031}
   m_RootOrder: 0
@@ -58987,7 +58987,7 @@ GameObject:
   - component: {fileID: 2808432868366691660}
   - component: {fileID: 4370408665461078175}
   - component: {fileID: 9068856561986799269}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Surface
   m_TagString: center chaos
   m_Icon: {fileID: 0}
@@ -59687,7 +59687,7 @@ GameObject:
   - component: {fileID: 6035565724586814728}
   - component: {fileID: 5947794932821350082}
   - component: {fileID: 6941648266877043317}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Singularity_Update
   m_TagString: Untagged
   m_Icon: {fileID: 0}

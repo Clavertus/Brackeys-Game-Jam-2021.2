@@ -23,6 +23,8 @@ public class PlayerManager : MonoBehaviour
     public AudioClip pickupSFX;
     public AudioClip gravityswitchSFX;
 
+    public JarSpawner jarSpawner;
+
 
     public AudioManager audioManager;
     
@@ -76,6 +78,8 @@ public class PlayerManager : MonoBehaviour
         if(other.tag == "jar")
         {
             Destroy(other.gameObject);
+
+            jarSpawner.jarCount--;
 
             GetComponent<PlayerHealth>().fuel = GetComponent<PlayerHealth>().maxFuel;
             GetComponent<PlayerHealth>().health = GetComponent<PlayerHealth>().maxHealth;

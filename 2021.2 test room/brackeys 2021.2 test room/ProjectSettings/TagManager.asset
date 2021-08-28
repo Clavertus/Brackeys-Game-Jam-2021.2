@@ -13,6 +13,7 @@ TagManager:
   - floor
   - Singularity zone
   - jar
+  - Singularity Bullet
   layers:
   - Default
   - TransparentFX

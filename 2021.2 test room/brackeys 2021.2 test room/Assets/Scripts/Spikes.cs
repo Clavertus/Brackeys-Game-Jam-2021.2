@@ -39,5 +39,8 @@ public class Spikes : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage, sourceString);
         }
+
+        if (gameObject.CompareTag("Singularity Bullet")) { Debug.Log("destroy"); Destroy(gameObject); } 
+
     }
 }
