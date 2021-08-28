@@ -1069,9 +1069,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f7f5fdee62e7e94c81ff4c7b9a9c8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barTime: 1.92
+  interval: 0
   beatStarted: 0
   anim: {fileID: 0}
+  levelMusic: {fileID: 190216803}
+  time_s: 
+  sampleTimes: []
 --- !u!1 &668122097
 GameObject:
   m_ObjectHideFlags: 0

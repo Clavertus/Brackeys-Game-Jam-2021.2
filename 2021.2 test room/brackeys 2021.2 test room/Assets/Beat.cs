@@ -39,10 +39,7 @@ public class Beat : MonoBehaviour
             sampleTimes[i] = interval * (i + 1);
         }
 
-        for (int i = 0; i < time_s.Length; i++)
-        {
-            time_s[i] = Mathf.RoundToInt(sampleTimes[i] * levelMusic.clip.frequency);
-        }
+       
 
         v = GetComponent<Volume>();
         v.profile.TryGet(out vg);
