@@ -27,6 +27,7 @@ public class GravityController : MonoBehaviour
 
     void Start()
     {
+        levelManager = GameObject.FindGameObjectWithTag("levelManager");
         gravityScale = 20;
         if(gameObject.name == "Player")
         {
@@ -36,11 +37,12 @@ public class GravityController : MonoBehaviour
             {
                 levelMusic.Play();
                 volume.GetComponent<Beat>().beatStarted = true;
+                levelManager.GetComponent<LevelManager>().beatStarted = true;
             }
         }
         rb = gameObject.GetComponent<Rigidbody>();
         rb.useGravity = false;
-        levelManager = GameObject.FindGameObjectWithTag("levelManager");
+        
         
         
     }
@@ -48,10 +50,6 @@ public class GravityController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (levelMusic != null)
-        {
-            Debug.Log(levelMusic.timeSamples);
-        }
 
         currentGravitationState = cg;
         cg = levelManager.GetComponent<LevelManager>().currentGrav;
