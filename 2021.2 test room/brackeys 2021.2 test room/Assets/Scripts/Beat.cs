@@ -69,7 +69,7 @@ public class Beat : MonoBehaviour
                 vg.intensity.value = 0.5f;
             }
         }
-
+        yield return new WaitForSeconds(Time.deltaTime);
         StartCoroutine("NewUpdate");
 
         

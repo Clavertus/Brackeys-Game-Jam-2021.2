@@ -57,25 +57,25 @@ public class PlayerMovement : MonoBehaviour
         {
             case 0:
                 newPos = (transform.position.x + delta);
-                transform.position = new Vector2(newPos, transform.position.y);
+                transform.position = new Vector3(newPos, transform.position.y, transform.position.z);
 
                 break;
 
             case 1:
                 newPos = (transform.position.y - delta);
-                transform.position = new Vector2(transform.position.x, newPos);
+                transform.position = new Vector3(transform.position.x, newPos, transform.position.z);
 
                 break;
 
             case 2:
                 newPos = (transform.position.x + delta);
-                transform.position = new Vector2(newPos, transform.position.y);
+                transform.position = new Vector3(newPos, transform.position.y, transform.position.z);
 
                 break;
 
             case 3:
                 newPos = (transform.position.y + delta);
-                transform.position = new Vector2(transform.position.x, newPos);
+                transform.position = new Vector3(transform.position.x, newPos, transform.position.z);
 
                 break;
 
