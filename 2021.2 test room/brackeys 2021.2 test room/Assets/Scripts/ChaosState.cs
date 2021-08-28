@@ -10,21 +10,17 @@ public class ChaosState : MonoBehaviour
     [SerializeField] float shootTimerDecrease = .5f;
     [SerializeField] float shootTimerDecrease2 = 1f;
 
-
+    bool doNotFire; 
     float timer; 
     int currentChaosState = 0;
-    bool doNotFire = true; 
     [Header("Chaos State 1")]
     [SerializeField] List<Transform> chaosOneShooters;
-    bool shootChaosOne = false;
 
     [Header("Chaos State 2")]
     [SerializeField] List<Transform> chaosTwoShooters;
-    bool shootChaosTwo = false;
     [Header("Chaos State 3")]
     [SerializeField] List<Transform> chaosThreeShooters;
-    bool shootChaosThree = false; 
-    // Start is called before the first frame update 
+    // Start is called before the first frame update  
     void Start()
     {
         timer = maxShootTimer; 
@@ -59,6 +55,7 @@ public class ChaosState : MonoBehaviour
         Vector3 randomSpawnLocation = chaosOneShooters[Random.Range(0, chaosOneShooters.Count)].position;
         var bulletClone = Instantiate(damagebullet, randomSpawnLocation , Quaternion.identity);
         bulletClone.GetComponent<Rigidbody>().velocity = Random.insideUnitCircle.normalized * Time.deltaTime * bulletSpeed;
+        bulletClone.transform.rotation = Quaternion.LookRotation(bulletClone.GetComponent<Rigidbody>().velocity);
     }
 
     void ChaosTwoFire()
@@ -68,6 +65,8 @@ public class ChaosState : MonoBehaviour
         var bulletClone = Instantiate(damagebullet, randomSpawnLocation, Quaternion.identity);
         bulletClone.GetComponent<Rigidbody>().velocity = Random.insideUnitCircle.normalized * Time.deltaTime * bulletSpeed;
         Debug.Log("chaos2");
+        bulletClone.transform.rotation = Quaternion.LookRotation(bulletClone.GetComponent<Rigidbody>().velocity);
+
         maxShootTimer = shootTimerDecrease;
 
 
@@ -78,7 +77,9 @@ public class ChaosState : MonoBehaviour
         Vector3 randomSpawnLocation = chaosThreeShooters[Random.Range(0, chaosThreeShooters.Count)].position;
         var bulletClone = Instantiate(damagebullet, randomSpawnLocation, Quaternion.identity);
         bulletClone.GetComponent<Rigidbody>().velocity = Random.insideUnitCircle.normalized * Time.deltaTime * bulletSpeed;
-        maxShootTimer = shootTimerDecrease2; 
+        bulletClone.transform.rotation = Quaternion.LookRotation(bulletClone.GetComponent<Rigidbody>().velocity); 
+
+        maxShootTimer = shootTimerDecrease2;  
 
     }
 
