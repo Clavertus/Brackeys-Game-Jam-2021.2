@@ -51,6 +51,7 @@ public class BoxArrow : MonoBehaviour
     Color inverted;
     Color frozen;
 
+    public GameObject freezevfx;
 
     void Awake()
     {
@@ -335,7 +336,7 @@ public class BoxArrow : MonoBehaviour
             }
             else
             {
-
+                freezevfx.SetActive(false);
                 mat.SetColor(color, normal);
                 mat.SetTexture(texture, normalMat);
                 switch (currentGrav)

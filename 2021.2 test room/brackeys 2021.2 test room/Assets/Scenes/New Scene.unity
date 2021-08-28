@@ -2268,6 +2268,10 @@ PrefabInstance:
       value: 'Box Spawner '
       objectReference: {fileID: 0}
     - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
+      propertyPath: maxBoxes
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
       propertyPath: damageBox
       value: 
       objectReference: {fileID: 8482207524717107281, guid: d714450f027bd8a43ba753188f0da4ff, type: 3}
@@ -2281,7 +2285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3681398995552176333, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
       propertyPath: maxTimeBetweenSpawns
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3681398995552176334, guid: 0c04b5accbb6a1a4db53c99ba8f3f880, type: 3}
       propertyPath: m_RootOrder
@@ -4114,6 +4118,10 @@ PrefabInstance:
     - target: {fileID: 1955353762415456171, guid: f69a6e5e822eed64dbc1ab62acfea09c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626131191953880615, guid: f69a6e5e822eed64dbc1ab62acfea09c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7119197774823967665, guid: f69a6e5e822eed64dbc1ab62acfea09c, type: 3}
       propertyPath: m_Name
