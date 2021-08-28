@@ -77,6 +77,6 @@ public class Health : MonoBehaviour
         else { animator.SetBool("HealthStage4", false); }
 
         if ( health < startingHealth * .2) { animator.SetBool("HealthStage5", true); }
-        else { animator.SetBool("HealthStage5", false); }  
+        else { animator.SetBool("HealthStage5", false); }   
     }
 }
