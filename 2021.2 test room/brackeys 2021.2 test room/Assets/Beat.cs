@@ -30,16 +30,23 @@ public class Beat : MonoBehaviour
         beatStarted = false;
         time_s = new int[500];
         sampleTimes = new float[500];
+
+        for (int i = 0; i < sampleTimes.Length; i++)
+        {
+            sampleTimes[i] = interval * (i + 1);
+        }
     }
 
     void Start()
     {
-        for(int i = 0; i < sampleTimes.Length; i++)
-        {
-            sampleTimes[i] = interval * (i + 1);
-        }
 
-       
+/*
+        for (int i = 0; i < time_s.Length; i++)
+        {
+            time_s[i] = Mathf.RoundToInt(sampleTimes[i] * levelMusic.clip.frequency);
+        }
+        */
+
 
         v = GetComponent<Volume>();
         v.profile.TryGet(out vg);
@@ -53,7 +60,7 @@ public class Beat : MonoBehaviour
         {
             for (var k = 1; k < time_s.Length; k++)
             {              
-                var nSample = time_s[k] * levelMusic.clip.frequency;
+                var nSample = time_s[k];
                 while (levelMusic.timeSamples < nSample)
                 {
                     continue;
