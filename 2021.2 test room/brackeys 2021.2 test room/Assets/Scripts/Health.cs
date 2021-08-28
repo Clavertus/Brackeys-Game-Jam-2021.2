@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     int health; 
     [SerializeField] GameObject outerChaosOrb;
     Vector3 myScale;
+    public ParticleSystem damageVFX;
 
     [SerializeField] BoxSpawner boxSpawner;
     int chaosState = 0; 
@@ -41,6 +42,7 @@ public class Health : MonoBehaviour
             new Vector3(scaleDecrement.x, scaleDecrement.y, scaleDecrement.z);   
         */
         health--;
+        damageVFX.Play();
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(-1);
         
 
