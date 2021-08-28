@@ -18,7 +18,7 @@ public class BounceBacc : MonoBehaviour
             Debug.Log(rb.gameObject.name);
             Debug.Log("Force received: " + rb.velocity + "   Force applied: " + -rb.velocity.normalized * 3);
 
-            rb.AddForce(-rb.velocity.normalized, ForceMode.Impulse);
+            rb.AddForce(-rb.velocity.normalized * 0.7f, ForceMode.Impulse);
         }
 
         if (collision.gameObject.GetComponent<PlayerHealth>() && collision.gameObject.GetComponent<PlayerHealth>().health > Mathf.Epsilon)
