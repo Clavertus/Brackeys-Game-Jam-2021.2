@@ -1458,10 +1458,6 @@ PrefabInstance:
       propertyPath: boxSpawner
       value: 
       objectReference: {fileID: 1213056406}
-    - target: {fileID: 597161945, guid: f1297749a8d3f444a8a5dac10116d2e4, type: 3}
-      propertyPath: damagebullet
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6019500045318987456, guid: f1297749a8d3f444a8a5dac10116d2e4, type: 3}
       propertyPath: m_RootOrder
       value: 1
