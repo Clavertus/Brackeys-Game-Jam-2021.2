@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 5493382491860317145}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,6 +300,8 @@ MonoBehaviour:
   landing2SFX: {fileID: 8300000, guid: c6c58f464d09f144a96c3f779e9e02f7, type: 3}
   pickupSFX: {fileID: 8300000, guid: 8d16d9c85cdc58e42b428b4fa4b1eb3f, type: 3}
   gravityswitchSFX: {fileID: 8300000, guid: 889af2902dd363048b95c9ca20447d3c, type: 3}
+  singularityDamagedSFX: {fileID: 8300000, guid: 169cb5d4b6ad9e6498874c8ab6225997, type: 3}
+  singularityDestroyedSFX: {fileID: 8300000, guid: 44ee3d5987b72284cb2fcf1bfd3b1e80, type: 3}
   jarSpawner: {fileID: 0}
   audioManager: {fileID: 0}
   cb: 

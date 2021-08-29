@@ -146,7 +146,7 @@ public class GravityController : MonoBehaviour
         {
 
             case 0:
-                if (tagType == "Untagged")
+                if (tagType == "Untagged" || tagType == "Player")
                 {
                     rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * gravityScale);
 
@@ -164,7 +164,7 @@ public class GravityController : MonoBehaviour
 
 
             case 1:
-                if (tagType == "Untagged")
+                if (tagType == "Untagged" || tagType == "Player")
                 {
                     rb.AddForce(Vector3.left * 9.81f * Time.fixedDeltaTime * gravityScale);
 
@@ -182,7 +182,7 @@ public class GravityController : MonoBehaviour
 
 
             case 2:
-                if (tagType == "Untagged")
+                if (tagType == "Untagged" || tagType == "Player")
                 {
                     rb.AddForce(Vector3.up * 9.81f * Time.fixedDeltaTime * gravityScale);
 
@@ -200,7 +200,7 @@ public class GravityController : MonoBehaviour
 
 
             case 3:
-                if (tagType == "Untagged")
+                if (tagType == "Untagged" || tagType == "Player")
                 {
                     rb.AddForce(Vector3.right * 9.81f * Time.fixedDeltaTime * gravityScale);
 
@@ -216,7 +216,7 @@ public class GravityController : MonoBehaviour
                 break;
 
             default:
-                if (tagType == "Untagged")
+                if (tagType == "Untagged" || tagType == "Player")
                 {
                     rb.AddForce(Vector3.down * 9.81f * Time.fixedDeltaTime * gravityScale);
 
