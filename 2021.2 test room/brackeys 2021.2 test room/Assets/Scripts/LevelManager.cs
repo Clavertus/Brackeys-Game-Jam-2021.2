@@ -26,6 +26,9 @@ public class LevelManager : MonoBehaviour
     bool rotating;
     public bool u_rotating;
 
+
+    public bool rebooting;
+
     public int[] time_s;
     public float[] sampleTimes;
 
@@ -50,8 +53,8 @@ public class LevelManager : MonoBehaviour
 
         interval = 7.68f;
         beatStarted = false;
-        time_s = new int[500];
-        sampleTimes = new float[500];
+        time_s = new int[20];
+        sampleTimes = new float[20];
 
 
 
@@ -72,51 +75,93 @@ public class LevelManager : MonoBehaviour
         }
 
 
-
         StartCoroutine("NewUpdate");
+        StartCoroutine("LoopAudio");
 
     }
 
 
+    IEnumerator LoopAudio()
+    {
+        float length = levelMusic.clip.length;
+
+        while (true)
+        {
+            if (levelMusic != null && !beatStarted)
+            {
+                levelMusic.Play();
+                volume.GetComponent<Beat>().beatStarted = true;
+                beatStarted = true;
+
+            }
+            yield return new WaitForSeconds(length);
+        }
+    }
+
+    IEnumerator Reboot()
+    {
+        beatStarted = false;
+        rebooting = true;
+        yield return new WaitForSeconds(0.01f);
+        beatStarted = true;
+        levelMusic.Play();
+      //  time_s = new int[20];
+      // sampleTimes = new float[20];
+        rotating = false;
+        u_rotating = false;
+        nSample = 1;
+        nextSample = 1;
+        StartCoroutine("NewUpdate");
+        rebooting = false;
+    }
 
     IEnumerator NewUpdate()
     {
-        if (levelMusic != null && !beatStarted)
-        {
-            levelMusic.Play();
-            volume.GetComponent<Beat>().beatStarted = true;
-            beatStarted = true;
-
-        }
-
-        if (beatStarted)
-        {
-            for (var k = 0; k < time_s.Length; k++)
+       
+        
+       
+            if (beatStarted)
             {
-                nSample = time_s[k];
-                nextSample = time_s[k + 1];
-                while (levelMusic.timeSamples < nSample)
+                for (var k = 0; k < time_s.Length; k++)
                 {
-                    yield return 0;
-                }
-                 if (currentGrav == 3)
-                 {
-                    currentGrav = 0;
-                    rotating = true;
-                    u_rotating = true;
-                    player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().gravityswitchSFX);
 
-                  }
-                 else
+                    nSample = time_s[k];
+                    nextSample = time_s[k + 1];
+
+                    while (levelMusic.timeSamples < nSample)
                     {
-                    currentGrav++;
-                    rotating = true;
-                    u_rotating = true;
-                    player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().gravityswitchSFX);
+                    if (!levelMusic.isPlaying && !rebooting)
+                    {
+                        StartCoroutine("Reboot");
+                        yield break;
+                    }
+                        yield return null;
+                    
+                    }
+
+                    if (currentGrav == 3)
+                    {
+                        currentGrav = 0;
+                        rotating = true;
+                        u_rotating = true;
+                        player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().gravityswitchSFX);
 
                     }
+                    else
+                    {
+                        currentGrav++;
+                        rotating = true;
+                        u_rotating = true;
+                        player.GetComponent<PlayerManager>().PlaySound(player.GetComponent<PlayerManager>().gravityswitchSFX);
+
+
+                    }
+
+                }
+
             }
-        }
+        
+            
         yield return new WaitForSeconds(Time.deltaTime);
 
 
