@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour
     public AudioClip gravityswitchSFX;
     public AudioClip singularityDamagedSFX;
     public AudioClip singularityDestroyedSFX;
+    public AudioClip healSFX;
+    public AudioClip endLevelSFX;
 
     public JarSpawner jarSpawner;
 
@@ -41,6 +43,12 @@ public class PlayerManager : MonoBehaviour
         {
             source.volume = 0.3f;
         }
+        if (sfx == singularityDamagedSFX || sfx == healSFX || sfx == singularityDestroyedSFX)
+        {
+            source.spatialBlend = 0.75f;
+        }
+
+
         source.clip = sfx;
         source.Play();
         Destroy(source, source.clip.length);
