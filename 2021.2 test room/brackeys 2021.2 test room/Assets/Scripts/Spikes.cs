@@ -13,15 +13,15 @@ public class Spikes : MonoBehaviour
             switch (Random.Range(0, 4))
             {
                 case 0:
-                    sourceString = "Impaled on a metal spike";
+                    sourceString = "Electro condensated by a neon light";
                     break;
 
                 case 1:
-                    sourceString = "Got a flat tire on a spike";
+                    sourceString = "Systems crashed, UPS reccomended";
                     break;
 
                 case 2:
-                    sourceString = "Hit the funny spot with a spike";
+                    sourceString = "Hit the funny spot with a neon light";
                     break;
 
                 case 3:
@@ -29,7 +29,7 @@ public class Spikes : MonoBehaviour
                     break;
 
                 default:
-                    sourceString = "Impaled on a metal spike";
+                    sourceString = "System crashed, UPS reccomended";
                     break;
             }
         }
