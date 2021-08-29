@@ -16,6 +16,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(7);
     }
 
+    public void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("Level Select");
+    }
+
     public void LoadNextScene()
     {
         SceneManager.LoadScene(buildIndex + 1);   
