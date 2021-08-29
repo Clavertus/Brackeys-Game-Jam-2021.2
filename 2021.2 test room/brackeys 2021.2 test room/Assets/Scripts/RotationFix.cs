@@ -9,6 +9,11 @@ public class RotationFix : MonoBehaviour
         if(other.gameObject.GetComponent<SuckToSelf>() != null)
         {
             transform.GetChild(0).GetChild(1).GetComponent<BoxArrow>().alive = false;
+            Destroy(gameObject, 5f);
+
         }
+
+
+
     }
 }

@@ -17,7 +17,6 @@ public class GravitySwitcher : MonoBehaviour
     [SerializeField] float rotateSpeed = .1f;
     [SerializeField] float rotateSpeedIncrement = .1f;
 
-    public float xddddddddd;
 
     Vector3 orbPos;
     void Start()
