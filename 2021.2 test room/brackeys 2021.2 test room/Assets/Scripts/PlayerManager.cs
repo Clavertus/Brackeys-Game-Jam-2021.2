@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
     public AudioClip landing2SFX;
     public AudioClip pickupSFX;
     public AudioClip gravityswitchSFX;
+    public AudioClip singularityDamagedSFX;
+    public AudioClip singularityDestroyedSFX;
 
     public JarSpawner jarSpawner;
 
@@ -34,6 +36,10 @@ public class PlayerManager : MonoBehaviour
         if(sfx == landingSFX || sfx == landing2SFX)
         {
             source.volume = 0.2f;
+        }
+        if(sfx == gravityswitchSFX)
+        {
+            source.volume = 0.3f;
         }
         source.clip = sfx;
         source.Play();
