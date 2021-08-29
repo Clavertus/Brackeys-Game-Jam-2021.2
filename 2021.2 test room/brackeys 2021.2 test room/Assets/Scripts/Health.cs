@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     Vector3 myScale;
     public ParticleSystem damageVFX;
     public ParticleSystem destroyVFX;
+    public ParticleSystem healVFX;
     GameObject winConditions; 
 
     [SerializeField] BoxSpawner boxSpawner;
@@ -76,6 +77,9 @@ public class Health : MonoBehaviour
             new Vector3(scaleIncrement.x, scaleIncrement.y, scaleIncrement.z);
         */
         health++;
+        healVFX.Play();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().PlaySound(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().healSFX);
+
         ChaosStateAnimator();
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(1);
         winConditions.GetComponent<WinConditions>().UpdateSumHealth(1); 

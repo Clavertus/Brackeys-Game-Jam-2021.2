@@ -6,9 +6,18 @@ public class WinConditions : MonoBehaviour
 {
     int sumOfSingularityHealth;
     bool initialHealthUpdated = false;
-    [SerializeField] GameObject nextLevel; 
+    [SerializeField] GameObject nextLevel;
     // Start is called before the first frame update
-    public void UpdateSumHealth(int healthUpdate)
+    bool soundNotPlayed;
+
+    void Awake()
+    {
+        soundNotPlayed = true;
+    }
+
+
+
+        public void UpdateSumHealth(int healthUpdate)
     {
         sumOfSingularityHealth += healthUpdate; 
     }
@@ -18,7 +27,16 @@ public class WinConditions : MonoBehaviour
     {
         if (initialHealthUpdated && sumOfSingularityHealth <= 0)
         {
-            nextLevel.SetActive(true);  
+            nextLevel.SetActive(true);
+            if (soundNotPlayed)
+            {
+                GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().levelMusic.volume = 0;
+
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().PlaySound(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().endLevelSFX);
+                soundNotPlayed = false;
+            }
+ 
+
         }
     }
 }
