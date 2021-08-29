@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject outerChaosOrb;
     Vector3 myScale;
     public ParticleSystem damageVFX;
+    GameObject winConditions; 
 
     [SerializeField] BoxSpawner boxSpawner;
     int chaosState = 0; 
@@ -18,6 +19,11 @@ public class Health : MonoBehaviour
         health = startingHealth;
         myScale = outerChaosOrb.transform.localScale;
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(startingHealth);
+
+        winConditions = FindObjectOfType<WinConditions>().gameObject; 
+        winConditions.GetComponent<WinConditions>().UpdateSumHealth(startingHealth);  
+        winConditions.GetComponent<WinConditions>().initialHealthUpdate(); 
+
         ChaosStateAnimator(); 
 
     }
@@ -44,6 +50,7 @@ public class Health : MonoBehaviour
         health--;
         damageVFX.Play();
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(-1);
+        winConditions.GetComponent<WinConditions>().UpdateSumHealth(-1);
         
 
         ChaosStateAnimator(); 
@@ -62,6 +69,7 @@ public class Health : MonoBehaviour
         health++;
         ChaosStateAnimator();
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(1);
+        winConditions.GetComponent<WinConditions>().UpdateSumHealth(1); 
         FindObjectOfType<BoxSpawner>().UpdateOrbCount();
 
     }
