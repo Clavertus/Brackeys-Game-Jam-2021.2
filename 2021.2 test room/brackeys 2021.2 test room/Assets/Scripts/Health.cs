@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
             new Vector3(scaleDecrement.x, scaleDecrement.y, scaleDecrement.z);   
         */
         health--;
-        damageVFX.Play();
+        
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().PlaySound(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().singularityDamagedSFX);
 
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(-1);
