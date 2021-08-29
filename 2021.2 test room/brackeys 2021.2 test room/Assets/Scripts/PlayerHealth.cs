@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     public Text cause;
 
     public Animator anim;
+    public ParticleSystem sparks;
 
 
     private void Start()
@@ -67,9 +68,12 @@ public class PlayerHealth : MonoBehaviour
         {
             gameObject.GetComponent<PlayerMovement>().playerMoveSpeed = 0.1f;
             fuel -= Time.deltaTime;
+            if(!sparks.isPlaying)
+            sparks.Play();
         } else
         {
             gameObject.GetComponent<PlayerMovement>().playerMoveSpeed = 0.04f;
+            sparks.Stop();
         }
     }
     

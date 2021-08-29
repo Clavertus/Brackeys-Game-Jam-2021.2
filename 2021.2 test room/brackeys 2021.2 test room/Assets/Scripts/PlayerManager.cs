@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     public AudioClip endLevelSFX;
 
     public JarSpawner jarSpawner;
+    public ParticleSystem god;
 
 
     public AudioManager audioManager;
@@ -94,7 +95,7 @@ public class PlayerManager : MonoBehaviour
             Destroy(other.gameObject);
 
             jarSpawner.jarCount--;
-
+            god.Play();
             GetComponent<PlayerHealth>().fuel = GetComponent<PlayerHealth>().maxFuel;
             GetComponent<PlayerHealth>().health = GetComponent<PlayerHealth>().maxHealth;
             GetComponent<PlayerManager>().PlaySound(GetComponent<PlayerManager>().pickupSFX);
