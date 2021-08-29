@@ -38,9 +38,11 @@ public class LevelManager : MonoBehaviour
     public int nextSample;
 
     public GameObject player;
+    public GameObject volume;
 
     void Awake()
     {
+
         rotating = false;
         u_rotating = false;
         nSample = 1;
@@ -52,10 +54,6 @@ public class LevelManager : MonoBehaviour
         sampleTimes = new float[500];
 
 
-        for (int i = 0; i < sampleTimes.Length; i++)
-        {
-            sampleTimes[i] = interval * (i + 1);
-        }
 
 
     }
@@ -63,6 +61,10 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
 
+        for (int i = 0; i < sampleTimes.Length; i++)
+        {
+            sampleTimes[i] = interval * (i + 1);
+        }
 
         for (int i = 0; i < time_s.Length; i++)
         {
@@ -70,11 +72,23 @@ public class LevelManager : MonoBehaviour
         }
 
 
+
         StartCoroutine("NewUpdate");
+
     }
+
+
 
     IEnumerator NewUpdate()
     {
+        if (levelMusic != null && !beatStarted)
+        {
+            levelMusic.Play();
+            volume.GetComponent<Beat>().beatStarted = true;
+            beatStarted = true;
+
+        }
+
         if (beatStarted)
         {
             for (var k = 0; k < time_s.Length; k++)
@@ -104,7 +118,14 @@ public class LevelManager : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(Time.deltaTime);
-        StartCoroutine("NewUpdate");
+
+
+        
+       StartCoroutine("NewUpdate");
+        
+
+
+        
 
 
 

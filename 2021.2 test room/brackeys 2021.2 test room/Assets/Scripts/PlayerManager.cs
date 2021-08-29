@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-
+        
 
         if (Input.GetKeyDown("q") && cb == "gravity")
         {
