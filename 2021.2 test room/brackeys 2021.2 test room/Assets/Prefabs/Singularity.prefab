@@ -57,8 +57,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c3f764bd30778438ff5f911283c9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   startingHealth: 2
   outerChaosOrb: {fileID: 8470378091260992235}
+  damageVFX: {fileID: 0}
+  destroyVFX: {fileID: 0}
+  healVFX: {fileID: 0}
   boxSpawner: {fileID: 0}
 --- !u!1 &8470378091260992235
 GameObject:
@@ -123,7 +127,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 663a80780e6bff04ebae067f7c02cd93, type: 2}
+  - {fileID: 2100000, guid: 411851011f950064ca41cd1050d67edc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
