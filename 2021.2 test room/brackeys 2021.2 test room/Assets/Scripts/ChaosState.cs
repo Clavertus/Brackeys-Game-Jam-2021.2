@@ -10,7 +10,7 @@ public class ChaosState : MonoBehaviour
     [SerializeField] float shootTimerDecrease = .5f;
     [SerializeField] float shootTimerDecrease2 = 1f;
 
-    bool doNotFire; 
+     
     float timer; 
     int currentChaosState = 0;
     [Header("Chaos State 1")]
@@ -39,8 +39,7 @@ public class ChaosState : MonoBehaviour
 
     private void PickChaosState()
     {
-        if (currentChaosState == 0) {  doNotFire = true; }
-        else if (currentChaosState == 1) {  ChaosOneFire(); }
+        if (currentChaosState == 1) {  ChaosOneFire(); }
         else if (currentChaosState == 2) {  ChaosTwoFire(); }
         else if (currentChaosState == 3) {  ChaosThreeFire(); }
     }
