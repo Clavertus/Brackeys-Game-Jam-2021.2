@@ -107,9 +107,11 @@ public class BoxArrow : MonoBehaviour
 
 
 
-
-        u_rotating = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().u_rotating;
-        currentGrav = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().currentGrav;
+        if (GameObject.FindGameObjectWithTag("levelManager") != null)
+        {
+            u_rotating = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().u_rotating;
+            currentGrav = GameObject.FindGameObjectWithTag("levelManager").GetComponent<LevelManager>().currentGrav;
+        }
 
         if (u_rotating)
         {

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class GravityFill : MonoBehaviour
 {
     public Image timer;
-    int nSample;
-    int nextSample;
-    int timeS;
+    public int nSample;
+    public int nextSample;
+    public int timeS;
     
     public GameObject levelManager;
 

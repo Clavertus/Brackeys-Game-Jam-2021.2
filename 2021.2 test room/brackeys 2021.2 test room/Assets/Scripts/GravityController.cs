@@ -33,12 +33,7 @@ public class GravityController : MonoBehaviour
         {
             rb.WakeUp();
             gravityScale = 10;
-            if (levelMusic != null)
-            {
-                levelMusic.Play();
-                volume.GetComponent<Beat>().beatStarted = true;
-                levelManager.GetComponent<LevelManager>().beatStarted = true;
-            }
+            
         }
         rb = gameObject.GetComponent<Rigidbody>();
         rb.useGravity = false;
