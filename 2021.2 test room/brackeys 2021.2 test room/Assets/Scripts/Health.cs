@@ -54,7 +54,9 @@ public class Health : MonoBehaviour
 
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(-1);
         winConditions.GetComponent<WinConditions>().UpdateSumHealth(-1);
-        
+        if(damageVFX == null) { return;  }
+        damageVFX.Play();
+
 
         ChaosStateAnimator(); 
         if (health <= 0) {
