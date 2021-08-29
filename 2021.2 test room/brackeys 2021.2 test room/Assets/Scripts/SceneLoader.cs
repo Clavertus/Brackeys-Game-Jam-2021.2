@@ -11,6 +11,11 @@ public class SceneLoader : MonoBehaviour
         buildIndex = SceneManager.GetActiveScene().buildIndex;  
     }
 
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene(7);
+    }
+
     public void LoadNextScene()
     {
         SceneManager.LoadScene(buildIndex + 1);   
