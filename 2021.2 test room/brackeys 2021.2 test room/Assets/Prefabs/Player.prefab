@@ -302,6 +302,8 @@ MonoBehaviour:
   gravityswitchSFX: {fileID: 8300000, guid: 889af2902dd363048b95c9ca20447d3c, type: 3}
   singularityDamagedSFX: {fileID: 8300000, guid: 169cb5d4b6ad9e6498874c8ab6225997, type: 3}
   singularityDestroyedSFX: {fileID: 8300000, guid: 44ee3d5987b72284cb2fcf1bfd3b1e80, type: 3}
+  healSFX: {fileID: 8300000, guid: 495bebeaf1df9374da1f835678f08c62, type: 3}
+  endLevelSFX: {fileID: 8300000, guid: dac92dfe231bcf347bc8fd10b5048e90, type: 3}
   jarSpawner: {fileID: 0}
   audioManager: {fileID: 0}
   cb: 
