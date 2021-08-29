@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    int buildIndex; 
+    int buildIndex;
     private void Start()
     {
-        buildIndex = SceneManager.GetActiveScene().buildIndex;  
+        buildIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void LoadCredits()
@@ -16,22 +16,27 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(7);
     }
 
+    public void LoadLevelSelect()
+    {
+        SceneManager.LoadScene("Level Select");
+    }
+
     public void LoadNextScene()
     {
-        SceneManager.LoadScene(buildIndex + 1);   
+        SceneManager.LoadScene(buildIndex + 1);
     }
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("Main Menu"); 
-    } 
+        SceneManager.LoadScene("Main Menu");
+    }
     public void ReloadScene()
     {
-        SceneManager.LoadScene(buildIndex); 
+        SceneManager.LoadScene(buildIndex);
     }
     public void QuitGame()
     {
-        Application.Quit();   
+        Application.Quit();
     }
 
     public void LoadLevel1()
@@ -54,4 +59,6 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Level 5");
     }
+
+
 }
