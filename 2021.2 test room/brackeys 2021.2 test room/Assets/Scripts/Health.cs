@@ -48,10 +48,12 @@ public class Health : MonoBehaviour
             new Vector3(scaleDecrement.x, scaleDecrement.y, scaleDecrement.z);   
         */
         health--;
-        damageVFX.Play();
+
         boxSpawner.GetComponent<BoxSpawner>().HealthSum(-1);
         winConditions.GetComponent<WinConditions>().UpdateSumHealth(-1);
-        
+        if(damageVFX == null) { return;  }
+        damageVFX.Play();
+
 
         ChaosStateAnimator(); 
         if (health <= 0) { Destroy(outerChaosOrb);  }
